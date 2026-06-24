@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/a/Documents/Projects/project-obbyware/build/cmake_install.cmake",
+		"/home/a/Documents/Projects/project-obbyware/build/libowsolver/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,110 @@
+[
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWCamera.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWCamera.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWCamera.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWCamera.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWInstance/OWInstance.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWInstance/OWInstance.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWInstance/OWInstance.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWInstance/OWInstance.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWInstance/OWPart.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWInstance/OWPart.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWInstance/OWPart.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWInstance/OWPart.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWPlayerController.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWPlayerController.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWPlayerController.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWPlayerController.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWRig.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWRig.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWRig.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWRig.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/OWWorld.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/OWWorld.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/OWWorld.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/OWWorld.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build",
+  "command": "/usr/bin/c++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/a/Documents/Projects/project-obbyware/include -I/usr/include/bullet -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -std=gnu++20 -o CMakeFiles/obbyware.dir/src/ObbywareMain.cpp.o -c /home/a/Documents/Projects/project-obbyware/src/ObbywareMain.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/src/ObbywareMain.cpp",
+  "output": "CMakeFiles/obbyware.dir/src/ObbywareMain.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/Body.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/Body.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/Body.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/Body.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/CollisionWorld.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/CollisionWorld.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/CollisionWorld.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/CollisionWorld.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/Constraint.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/Constraint.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/Constraint.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/Constraint.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/ConstraintJacobian.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintJacobian.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintJacobian.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/ConstraintJacobian.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/ConstraintTypes.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintTypes.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintTypes.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/ConstraintTypes.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/ConstraintVariables.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintVariables.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/ConstraintVariables.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/ConstraintVariables.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/ContactManifold.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/ContactManifold.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/ContactManifold.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/ContactManifold.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/Solver.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/Solver.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/Solver.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/Solver.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/SolverBody.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverBody.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverBody.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/SolverBody.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/SolverConfig.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverConfig.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverConfig.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/SolverConfig.cpp.o"
+},
+{
+  "directory": "/home/a/Documents/Projects/project-obbyware/build/libowsolver",
+  "command": "/usr/bin/c++  -I/home/a/Documents/Projects/project-obbyware/libowsolver/include -I/usr/include/bullet -std=gnu++20 -o CMakeFiles/owsolver.dir/src/SolverKernel.cpp.o -c /home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverKernel.cpp",
+  "file": "/home/a/Documents/Projects/project-obbyware/libowsolver/src/SolverKernel.cpp",
+  "output": "libowsolver/CMakeFiles/owsolver.dir/src/SolverKernel.cpp.o"
+}
+]
