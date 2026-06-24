@@ -146,6 +146,7 @@ namespace OWSolver {
 
         void setLocalCFrame(const CoordinateFrame& cf) {
             localCFrame = cf;
+            getRoot()->markBranchDirty();
         }
 
     private:

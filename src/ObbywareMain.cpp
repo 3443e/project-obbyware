@@ -15,7 +15,7 @@ int main() {
 
     InitWindow(800, 500, "OBBYWARE");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
-    SetTargetFPS(240);
+    SetTargetFPS(60);
     EnableCursor();
 
     // physics world
@@ -143,13 +143,28 @@ int main() {
                 target = &walkAnim;
             }
 
-            if (character.getCurrentAnim() != target) {
-                character.playAnimation(target);
+            std::vector<const OWAnimation*> active = { &idleAnim, &walkAnim, &jumpAnim, &fallAnim, &climbAnim };
+            for (const OWAnimation* a : active) {
+                if (a != target) {
+                    character.stopAnimation(a, 0.1f);
+                }
             }
+
+            character.playAnimation(target, 0.1f);
+
+            glm::vec3 vel = character.getRoot()->getBody()->getLinearVelocity();
+            float horizSpeed = std::sqrt(vel.x * vel.x + vel.z * vel.z);
+            character.setAnimationSpeed(&walkAnim, horizSpeed / 16.0f);
+
+            bool isClimbing = controller.getState() == OWPlayerController::State::Climbing;
+            bool hasMoveInput = IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D);
+            character.setAnimationPaused(&climbAnim, isClimbing && !hasMoveInput);
+
             character.updateAnimation(GAME_STEP_DT);
 
             gameStepAccumulator -= GAME_STEP_DT;
         }
+        
         // prevent spiral of death if FPS drops below 60
         if (gameStepAccumulator > GAME_STEP_DT * 2.0f) {
             gameStepAccumulator = 0.0f;

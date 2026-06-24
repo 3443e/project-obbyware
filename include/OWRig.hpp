@@ -2,6 +2,19 @@
 #include "OWInstance/OWPart.hpp"
 #include "OWAnimation.hpp"
 #include <raylib.h>
+#include <vector>
+
+struct AnimTrack {
+    enum State { Playing, Stopping };
+    const OWAnimation* anim;
+    float time;
+    float weight;
+    float targetWeight;
+    float fadeSpeed;
+    float speed;
+    State state;
+    bool paused;
+};
 
 class OWRig {
 public:
@@ -11,12 +24,14 @@ public:
     OWPart* getRoot() { return &rootPart; }
     void Render();
 
-    void playAnimation(const OWAnimation* anim);
+    void playAnimation(const OWAnimation* anim, float fadeTime);
+    void stopAnimation(const OWAnimation* anim, float fadeTime = 0.1f);
+    void stopAllAnimations(float fadeTime = 0.1f);
+    void setAnimationPaused(const OWAnimation* anim, bool paused);
+    void setAnimationSpeed(const OWAnimation* anim, float speed);
     void updateAnimation(float dt);
-    const OWAnimation* getCurrentAnim() const { return currentAnim; }
 
 private:
-    //order matters btw
     OWPart rootPart;
     OWPart torso;
     OWPart head;
@@ -40,14 +55,10 @@ private:
     glm::vec3 c1TransLeg;
     glm::vec3 c1TransHead;
 
-    const OWAnimation* currentAnim = nullptr;
-    float animTime = 0.0f;
+    std::vector<AnimTrack> tracks;
 
     OWSolver::CoordinateFrame lerpCF(const OWSolver::CoordinateFrame& a, const OWSolver::CoordinateFrame& b, float t);
     OWSolver::CoordinateFrame getPose(const Keyframe& kf, const std::string& name);
-    OWSolver::CoordinateFrame applyMotor6D(
-    const OWSolver::CoordinateFrame& base,
-    const glm::mat3& c0Rot,
-    const glm::vec3& c1Trans,
-    const OWSolver::CoordinateFrame& pose);
+    OWSolver::CoordinateFrame applyMotor6D(const OWSolver::CoordinateFrame& base, const glm::mat3& c0Rot, const glm::vec3& c1Trans, const OWSolver::CoordinateFrame& pose);
+    OWSolver::CoordinateFrame samplePose(const OWAnimation* anim, float time, const std::string& partName);
 };
