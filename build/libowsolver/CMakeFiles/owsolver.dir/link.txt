@@ -1,2 +1,0 @@
-/usr/bin/ar qc libowsolver.a CMakeFiles/owsolver.dir/src/Body.cpp.o CMakeFiles/owsolver.dir/src/CollisionWorld.cpp.o CMakeFiles/owsolver.dir/src/Constraint.cpp.o CMakeFiles/owsolver.dir/src/ConstraintJacobian.cpp.o CMakeFiles/owsolver.dir/src/ConstraintTypes.cpp.o CMakeFiles/owsolver.dir/src/ConstraintVariables.cpp.o CMakeFiles/owsolver.dir/src/ContactManifold.cpp.o CMakeFiles/owsolver.dir/src/Solver.cpp.o CMakeFiles/owsolver.dir/src/SolverBody.cpp.o CMakeFiles/owsolver.dir/src/SolverConfig.cpp.o CMakeFiles/owsolver.dir/src/SolverKernel.cpp.o
-/usr/bin/ranlib libowsolver.a

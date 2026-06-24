@@ -1,6 +1,0 @@
-/home/a/Documents/Projects/project-obbyware/build/CMakeFiles/obbyware.dir
-/home/a/Documents/Projects/project-obbyware/build/CMakeFiles/edit_cache.dir
-/home/a/Documents/Projects/project-obbyware/build/CMakeFiles/rebuild_cache.dir
-/home/a/Documents/Projects/project-obbyware/build/libowsolver/CMakeFiles/owsolver.dir
-/home/a/Documents/Projects/project-obbyware/build/libowsolver/CMakeFiles/edit_cache.dir
-/home/a/Documents/Projects/project-obbyware/build/libowsolver/CMakeFiles/rebuild_cache.dir

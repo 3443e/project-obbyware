@@ -44,7 +44,7 @@ int main() {
 
     OWPart wall2;
     wall2.InstanceName = "Wall2";
-    wall2.SetSize({1, 4, 40});
+    wall2.SetSize({2, 4, 40});
     wall2.SetAnchored(true);
     wall2.SetPosition({10, 2, 0});
     wall2.SetColor(DARKGRAY);
@@ -57,7 +57,7 @@ int main() {
     truss.SetColor(BROWN);
     truss.SetTruss(true);
 
-    
+    /*
     OWPart wedge;
     wedge.InstanceName = "Wedge";
     wedge.SetSize({4, 8, 8});
@@ -90,7 +90,7 @@ int main() {
     cornerWedge.SetPosition({15, 2, 5});
     cornerWedge.SetColor(PURPLE);
     cornerWedge.SetShapeCornerWedge();
-    
+    */
     // creating a rig for the player
     OWRig character;
     character.SetPosition({0, 5, 0});
@@ -105,6 +105,12 @@ int main() {
     controller.setJumpPower(50.0f);
     controller.setWalkSpeed(16.0f);
     controller.setHipHeight(0.0f);
+
+    OWAnimation walkAnim;     walkAnim.loadFromFile("assets/animations/WalkLoopAnimation_180426354.rbxmx");
+    OWAnimation idleAnim;     idleAnim.loadFromFile("assets/animations/Idle1LoopAnimation_180435571.rbxmx");
+    OWAnimation jumpAnim;     jumpAnim.loadFromFile("assets/animations/JumpAnimation_125750702.rbxmx");
+    OWAnimation fallAnim;     fallAnim.loadFromFile("assets/animations/FallLoopAnimation_180436148.rbxmx");
+    OWAnimation climbAnim;    climbAnim.loadFromFile("assets/animations/ClimbLoopAnimation_180436334.rbxmx");
 
     // 60Hz game step accumulator (Humanoid::onStepped rate)
     float gameStepAccumulator = 0.0f;
@@ -123,6 +129,25 @@ int main() {
         gameStepAccumulator += frameTime;
         while (gameStepAccumulator >= GAME_STEP_DT) {
             controller.updateInput(GAME_STEP_DT);
+
+            const OWAnimation* target = &idleAnim;
+            bool moving = IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D);
+
+            if (controller.getState() == OWPlayerController::State::Climbing) {
+                target = &climbAnim;
+            } else if (controller.isJumping()) {
+                target = &jumpAnim;
+            } else if (!controller.isGrounded()) {
+                target = &fallAnim;
+            } else if (moving) {
+                target = &walkAnim;
+            }
+
+            if (character.getCurrentAnim() != target) {
+                character.playAnimation(target);
+            }
+            character.updateAnimation(GAME_STEP_DT);
+
             gameStepAccumulator -= GAME_STEP_DT;
         }
         // prevent spiral of death if FPS drops below 60

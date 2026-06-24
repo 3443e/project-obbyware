@@ -9,12 +9,13 @@ find_package(raylib REQUIRED)
 find_package(Bullet REQUIRED)
 find_package(glm REQUIRED)
 
-add_executable(obbyware ${SOURCES})
+add_executable(obbyware ${SOURCES} third_party/tinyxml2/tinyxml2.cpp)
 
 add_subdirectory(libowsolver)
 
 target_include_directories(obbyware PRIVATE
     include/
+    third_party/tinyxml2/
     ${BULLET_INCLUDE_DIRS}
 )
 

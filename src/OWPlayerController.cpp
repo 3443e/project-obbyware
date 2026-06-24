@@ -28,6 +28,13 @@ static float radWrap(float angle) {
     return angle;
 }
 
+static void collectAllDescendants(const OWSolver::Body* root, std::vector<const OWSolver::Body*>& out) {
+    out.push_back(root);
+    for (const OWSolver::Body* c : root->getChildren()) {
+        collectAllDescendants(c, out);
+    }
+}
+
 OWPlayerController::OWPlayerController(OWPart* p) : part(p) {
     if (OWWorld::Active && part->getBody()) {
         uprightConstraint = new OWSolver::ConstraintBodyAngularVelocity(part->getBody(), OWWorld::Active->getWorldBody());
@@ -196,9 +203,15 @@ void OWPlayerController::updateInput(float dt) {
 
     OWSolver::Body* torso = body;
     OWSolver::Body* head = nullptr;
-    if (body->getChildren().size() >= 2) {
-        torso = body->getChildren()[0];
-        head = body->getChildren()[1];
+    if (!body->getChildren().empty()) {
+        torso = body->getChildren()[0];  // Torso is the only child of Root
+        for (OWSolver::Body* c : torso->getChildren()) {
+            if (c->getName() == "Head") {
+                head = c; 
+                
+                break;
+            }
+        }
     }
 
     if (OWWorld::Active) {
@@ -303,7 +316,19 @@ void OWPlayerController::updateInput(float dt) {
     static constexpr float FREEFALL_TURN_SPEED = 8.0f;
 
     if (characterFacesCamera) {
-        cachedCamLook = camera->getLookHorizontal();
+        // INSTANT ROTATION (matches Roblox setFirstPersonRotationalVelocity)
+        // Done at 60Hz (updateInput) to match Roblox's onCameraHeartbeat timing.
+        // This allows Bullet's broadphase to update, enabling corner clipping.
+        glm::vec3 newForward = glm::normalize(camera->getLookHorizontal());
+        glm::vec3 worldUp(0, 1, 0);
+        glm::vec3 newRight = glm::normalize(glm::cross(newForward, worldUp));
+        glm::vec3 newUp = glm::cross(newRight, newForward);
+
+        glm::mat3 newR(newRight, newUp, -newForward);
+        OWSolver::CoordinateFrame cf(newR, body->getWorldPosition());
+        body->setWorldCFrame(cf);
+        body->setAngularVelocity(glm::vec3(0));
+        
         cachedDesiredAngVelY = 0.0f;
     } else if (cachedHasMoveInput) {
         glm::mat3 R = body->getWorldOrientation();
@@ -332,9 +357,7 @@ void OWPlayerController::updateInput(float dt) {
         if (!std::isfinite(cachedIbodyY) || cachedIbodyY < 0.001f) cachedIbodyY = 1.0f;
     }
 
-    // during Jumping, 0 upright torque is applied, character can tilt freely.
-    // shift lock/first person: direct cframez set, no constraint needed.
-    if (characterFacesCamera || state == State::Jumping) {
+    if (state == State::Jumping) {
         uprightConstraint->setTarget(glm::vec3(0));
     } else {
         glm::mat3 R = body->getWorldOrientation();
@@ -539,10 +562,7 @@ bool OWPlayerController::findFloor(OWSolver::Body* root, float verticalVel, floa
     maxDistance += hysteresis * hipHeight;
 
     std::vector<const OWSolver::Body*> ignore;
-    ignore.push_back(root);
-    for (const OWSolver::Body* c : root->getChildren()) {
-        ignore.push_back(c);
-    }
+    collectAllDescendants(root, ignore);
 
     float zOffsets[] = {0.0f, 1.0f, -1.0f, 2.0f, -2.0f}; // raycast offsets
     glm::vec3 hitAccumulator(0.0f);
@@ -627,10 +647,7 @@ bool OWPlayerController::findCeiling(OWSolver::Body* root) {
     float maxDistance = 1.0f + 2.0f * 1.5f;
 
     std::vector<const OWSolver::Body*> ignore;
-    ignore.push_back(root);
-    for (const OWSolver::Body* c : root->getChildren()) {
-        ignore.push_back(c);
-    }
+    collectAllDescendants(root, ignore);
 
     {
         glm::vec3 localOffset(0.0f, -halfSize.y, 0.0f);

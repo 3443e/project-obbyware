@@ -1,0 +1,3690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="KeyframeSequence" referent="RBX00000000000000000000000000000000">
+		<Properties>
+			<bool name="Loop">true</bool>
+			<string name="Name">Test</string>
+			<token name="Priority">1000</token>
+		</Properties>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000001">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000002">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000003">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.120522</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000004">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.7881393e-07</Y>
+								<Z>0</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.99999976</R11>
+								<R12>0</R12>
+								<R20>0</R20>
+								<R21>0</R21>
+								<R22>1</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000005">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>4.1723251e-07</X>
+								<Y>0.54638064</Y>
+								<Z>0.15824783</Z>
+								<R00>0.693012</R00>
+								<R01>-0.10677399</R01>
+								<R02>-0.71297598</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70871502</R20>
+								<R21>-0.080355987</R21>
+								<R22>0.70090401</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000006">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248237</X>
+								<Y>-0.16760437</Y>
+								<Z>-0.10230684</Z>
+								<R00>-0.26298001</R00>
+								<R01>0.39382195</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.95292085</R10>
+								<R11>-0.24884394</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.150941</R20>
+								<R21>0.88486189</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000007">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.763715e-07</X>
+								<Y>0.82786685</Y>
+								<Z>4.1723251e-07</Z>
+								<R00>-0.99738699</R00>
+								<R01>-0.045454994</R01>
+								<R02>-0.056147002</R02>
+								<R10>0.031948991</R10>
+								<R11>-0.97463477</R11>
+								<R12>0.22150896</R12>
+								<R20>-0.064791001</R20>
+								<R21>0.21913597</R21>
+								<R22>0.97354102</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000008">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.1513551e-07</X>
+								<Y>-1.5646219e-07</Y>
+								<Z>2.3841858e-07</Z>
+								<R00>0.99770898</R00>
+								<R01>0.063699</R01>
+								<R02>0.022786999</R02>
+								<R10>-0.066229999</R10>
+								<R11>0.98835999</R11>
+								<R12>0.136962</R12>
+								<R20>-0.013797</R20>
+								<R21>-0.138157</R21>
+								<R22>0.99031401</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000009">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.050000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000000A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000000B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.246564</X>
+							<Y>0</Y>
+							<Z>-0.27431601</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000000C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-1.7763568e-15</X>
+								<Y>0.1313104</Y>
+								<Z>-1.7881393e-07</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>2.220446e-16</R10>
+								<R11>0.99893874</R11>
+								<R12>0.046049993</R12>
+								<R20>0</R20>
+								<R21>-0.046049993</R21>
+								<R22>0.99893898</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000000D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>2.682209e-07</X>
+								<Y>0.34698361</Y>
+								<Z>0.20730981</Z>
+								<R00>0.72968799</R00>
+								<R01>-0.072320983</R01>
+								<R02>-0.67994499</R02>
+								<R10>0.10856499</R10>
+								<R11>0.99403077</R11>
+								<R12>0.010778998</R12>
+								<R20>0.675107</R20>
+								<R21>-0.081683986</R21>
+								<R22>0.73318398</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000000E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.4224813</X>
+								<Y>-0.16760416</Y>
+								<Z>-0.10074723</Z>
+								<R00>-0.244532</R00>
+								<R01>0.40553394</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.96338588</R10>
+								<R11>-0.20461795</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.109958</R20>
+								<R21>0.89088291</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000000F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.1590174</X>
+								<Y>0.82786536</Y>
+								<Z>-9.2923641e-05</Z>
+								<R00>-0.94571698</R00>
+								<R01>0.32352895</R01>
+								<R02>0.0308</R02>
+								<R10>-0.32055694</R10>
+								<R11>-0.94421577</R11>
+								<R12>0.075492986</R12>
+								<R20>0.053507</R20>
+								<R21>0.061521992</R21>
+								<R22>0.99667102</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000010">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-5.8673322e-08</X>
+								<Y>-5.2154064e-08</Y>
+								<Z>-5.9604645e-08</Z>
+								<R00>0.997253</R00>
+								<R01>0.071952</R01>
+								<R02>-0.017619001</R02>
+								<R10>-0.068852998</R10>
+								<R11>0.98806</R11>
+								<R12>0.137832</R12>
+								<R20>0.027326001</R20>
+								<R21>-0.13624001</R21>
+								<R22>0.99029899</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000011">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.1</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000012">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000013">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.23018</X>
+							<Y>0</Y>
+							<Z>-0.32867599</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000014">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.7763568e-15</X>
+								<Y>0.21536505</Y>
+								<Z>1.7881393e-07</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>-2.220446e-16</R10>
+								<R11>0.99640775</R11>
+								<R12>0.084683985</R12>
+								<R20>0</R20>
+								<R21>-0.084683985</R21>
+								<R22>0.99640799</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000015">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>4.4703484e-07</X>
+								<Y>0.20688903</Y>
+								<Z>0.22109267</Z>
+								<R00>0.764799</R00>
+								<R01>-0.038992994</R01>
+								<R02>-0.64308798</R02>
+								<R10>0.084989987</R10>
+								<R11>0.99554974</R11>
+								<R12>0.040710993</R12>
+								<R20>0.63863897</R20>
+								<R21>-0.085791983</R21>
+								<R22>0.764709</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000016">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.4224816</X>
+								<Y>-0.16760346</Y>
+								<Z>-0.10014868</Z>
+								<R00>-0.228485</R00>
+								<R01>0.41478693</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97065187</R10>
+								<R11>-0.16678594</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.075034</R20>
+								<R21>0.89450186</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000017">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.21756028</X>
+								<Y>0.82786584</Y>
+								<Z>-0.00021523237</Z>
+								<R00>-0.89322603</R00>
+								<R01>0.44039193</R01>
+								<R02>0.090563998</R02>
+								<R10>-0.44451293</R10>
+								<R11>-0.89524078</R11>
+								<R12>-0.030851996</R12>
+								<R20>0.067489997</R20>
+								<R21>-0.067814983</R21>
+								<R22>0.99541301</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000018">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.5017729e-07</X>
+								<Y>-4.5448542e-07</Y>
+								<Z>-2.0861626e-07</Z>
+								<R00>0.99627399</R00>
+								<R01>0.077434003</R01>
+								<R02>-0.037981</R02>
+								<R10>-0.071477003</R10>
+								<R11>0.98773301</R11>
+								<R12>0.13883699</R12>
+								<R20>0.048264999</R20>
+								<R21>-0.13560399</R21>
+								<R22>0.98958701</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000019">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.15000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000001A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000001B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.186424</X>
+							<Y>0</Y>
+							<Z>-0.383156</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000001C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.7763568e-15</X>
+								<Y>0.3540566</Y>
+								<Z>0</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>-4.4408921e-16</R10>
+								<R11>0.98812878</R11>
+								<R12>0.15362597</R12>
+								<R20>0</R20>
+								<R21>-0.15362597</R21>
+								<R22>0.98812902</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000001D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.6391277e-07</X>
+								<Y>0.23727924</Y>
+								<Z>0.1077497</Z>
+								<R00>0.84073198</R00>
+								<R01>0.031869993</R01>
+								<R02>-0.54051298</R02>
+								<R10>0.030619996</R10>
+								<R11>0.99386978</R11>
+								<R12>0.10622898</R12>
+								<R20>0.54058599</R20>
+								<R21>-0.10586099</R21>
+								<R22>0.834602</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000001E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248142</X>
+								<Y>-0.16760415</Y>
+								<Z>-0.099316478</Z>
+								<R00>-0.18994901</R00>
+								<R01>0.43378896</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9817729</R10>
+								<R11>-0.078120969</R11>
+								<R12>0.17325798</R12>
+								<R20>0.0063510002</R20>
+								<R21>0.89762086</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000001F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.20990452</X>
+								<Y>0.8278656</Y>
+								<Z>-0.00063025951</Z>
+								<R00>-0.90516001</R00>
+								<R01>0.41644895</R01>
+								<R02>0.085180998</R02>
+								<R10>-0.42368495</R10>
+								<R11>-0.86773878</R11>
+								<R12>-0.25984594</R12>
+								<R20>-0.034297999</R20>
+								<R21>-0.27129194</R21>
+								<R22>0.96188599</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000020">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.5704503e-07</X>
+								<Y>1.3411045e-07</Y>
+								<Z>-3.5762787e-07</Z>
+								<R00>0.99299902</R00>
+								<R01>0.088953003</R01>
+								<R02>-0.077724002</R02>
+								<R10>-0.077312</R10>
+								<R11>0.98688197</R11>
+								<R12>0.141727</R12>
+								<R20>0.089312002</R20>
+								<R21>-0.134726</R21>
+								<R22>0.98685002</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000021">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.2</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000022">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000023">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.161108</X>
+							<Y>0</Y>
+							<Z>-0.36915699</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000024">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>0.38761604</Y>
+								<Z>5.6624413e-07</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98515373</R11>
+								<R12>0.17167597</R12>
+								<R20>0</R20>
+								<R21>-0.17167597</R21>
+								<R22>0.98515397</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000025">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.9802322e-08</X>
+								<Y>0.33796537</Y>
+								<Z>0.010187268</Z>
+								<R00>0.874753</R00>
+								<R01>0.059019994</R01>
+								<R02>-0.48096099</R02>
+								<R10>0.0061589992</R10>
+								<R11>0.99111974</R11>
+								<R12>0.13282497</R12>
+								<R20>0.48453</R20>
+								<R21>-0.11915199</R21>
+								<R22>0.86662197</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000026">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248213</X>
+								<Y>-0.16760406</Y>
+								<Z>-0.099124193</Z>
+								<R00>-0.16852599</R00>
+								<R01>0.44255295</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98441786</R10>
+								<R11>-0.030054992</R11>
+								<R12>0.17325798</R12>
+								<R20>0.050204001</R20>
+								<R21>0.89623886</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000027">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.16239569</X>
+								<Y>0.82786709</Y>
+								<Z>-0.00092315674</Z>
+								<R00>-0.94097102</R00>
+								<R01>0.33637193</R01>
+								<R02>0.037783999</R02>
+								<R10>-0.32542694</R10>
+								<R11>-0.86830175</R11>
+								<R12>-0.37436494</R12>
+								<R20>-0.093116999</R20>
+								<R21>-0.36456195</R21>
+								<R22>0.92651099</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000028">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.9802322e-08</X>
+								<Y>1.0430813e-07</Y>
+								<Z>0</Z>
+								<R00>0.99086899</R00>
+								<R01>0.094074003</R01>
+								<R02>-0.096589997</R02>
+								<R10>-0.079664998</R10>
+								<R11>0.98643798</R11>
+								<R12>0.143503</R12>
+								<R20>0.10878</R20>
+								<R21>-0.134498</R21>
+								<R22>0.98492497</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000029">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.25</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000002A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000002B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.092846043</X>
+							<Y>0</Y>
+							<Z>-0.10246205</Z>
+							<R00>0.99995601</R00>
+							<R01>0</R01>
+							<R02>-0.0094020003</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.0094020003</R20>
+							<R21>0</R21>
+							<R22>0.99995601</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000002C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-6.7800283e-07</X>
+								<Y>0.26561302</Y>
+								<Z>0.060619712</Z>
+								<R00>0.99474001</R00>
+								<R01>-0.063137986</R01>
+								<R02>0.080654003</R02>
+								<R10>0.053029992</R10>
+								<R11>0.99113178</R11>
+								<R12>0.12183799</R12>
+								<R20>-0.087632</R20>
+								<R21>-0.11691999</R21>
+								<R22>0.989268</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000002D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-8.9406967e-08</X>
+								<Y>0.25393301</Y>
+								<Z>0.011957049</Z>
+								<R00>0.94646198</R00>
+								<R01>0.088217989</R01>
+								<R02>-0.31052801</R02>
+								<R10>-0.037695993</R10>
+								<R11>0.98555678</R11>
+								<R12>0.16509397</R12>
+								<R20>0.32060799</R20>
+								<R21>-0.14454997</R21>
+								<R22>0.93611801</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000002E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248231</X>
+								<Y>-0.16760324</Y>
+								<Z>-0.099678606</Z>
+								<R00>-0.123384</R00>
+								<R01>0.45719895</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98248291</R10>
+								<R11>0.068627968</R11>
+								<R12>0.17325798</R12>
+								<R20>0.139659</R20>
+								<R21>0.88671291</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000002F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.048894752</X>
+								<Y>0.82786715</Y>
+								<Z>-0.0016359091</Z>
+								<R00>-0.99324799</R00>
+								<R01>0.11429799</R01>
+								<R02>0.019880001</R02>
+								<R10>-0.10501599</R10>
+								<R11>-0.81297177</R11>
+								<R12>-0.57275587</R12>
+								<R20>-0.049302999</R20>
+								<R21>-0.5709759</R21>
+								<R22>0.81948501</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000030">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>2.0116568e-07</X>
+								<Y>-1.1175871e-07</Y>
+								<Z>-2.0861626e-07</Z>
+								<R00>0.98627597</R00>
+								<R01>0.100667</R01>
+								<R02>-0.130863</R02>
+								<R10>-0.081049003</R10>
+								<R11>0.985744</R11>
+								<R12>0.14744601</R12>
+								<R20>0.14384</R20>
+								<R21>-0.13481601</R21>
+								<R22>0.98037499</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000031">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.30000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000032">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000033">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.050204985</X>
+							<Y>0</Y>
+							<Z>0.12308396</Z>
+							<R00>0.99980599</R00>
+							<R01>0</R01>
+							<R02>-0.019688999</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.019688999</R20>
+							<R21>0</R21>
+							<R22>0.99980599</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000034">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-3.2968819e-07</X>
+								<Y>0.13869876</Y>
+								<Z>0.13166168</Z>
+								<R00>0.975609</R00>
+								<R01>-0.12200198</R01>
+								<R02>0.18248899</R02>
+								<R10>0.11099599</R10>
+								<R11>0.99139476</R11>
+								<R12>0.069389984</R12>
+								<R20>-0.189384</R20>
+								<R21>-0.047441993</R21>
+								<R22>0.98075598</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000035">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>4.8615038e-07</X>
+								<Y>0.17149168</Y>
+								<Z>0.024966061</Z>
+								<R00>0.97512197</R00>
+								<R01>0.094749987</R01>
+								<R02>-0.200399</R02>
+								<R10>-0.059395991</R10>
+								<R11>0.98266876</R11>
+								<R12>0.17559597</R12>
+								<R20>0.21356399</R20>
+								<R21>-0.15932497</R21>
+								<R22>0.96385002</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000036">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248207</X>
+								<Y>-0.16760445</Y>
+								<Z>-0.10130301</Z>
+								<R00>-0.100642</R00>
+								<R01>0.46273693</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97789091</R10>
+								<R11>0.11709097</R11>
+								<R12>0.17325798</R12>
+								<R20>0.183302</R20>
+								<R21>0.87872887</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000037">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.011980645</X>
+								<Y>0.82786411</Y>
+								<Z>-0.0020217299</Z>
+								<R00>-0.99618298</R00>
+								<R01>-0.051926993</R01>
+								<R02>0.070170999</R02>
+								<R10>-0.0035789995</R10>
+								<R11>-0.77886677</R11>
+								<R12>-0.62717789</R12>
+								<R20>0.087220997</R20>
+								<R21>-0.62503487</R21>
+								<R22>0.77570802</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000038">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>2.2351742e-07</X>
+								<Y>-8.1956387e-08</Y>
+								<Z>-1.7881393e-07</Z>
+								<R00>0.98416102</R00>
+								<R01>0.101207</R01>
+								<R02>-0.145551</R02>
+								<R10>-0.079241998</R10>
+								<R11>0.98558003</R11>
+								<R12>0.149509</R12>
+								<R20>0.158583</R20>
+								<R21>-0.135607</R21>
+								<R22>0.97798902</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000039">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.34999999</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000003A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000003B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.010113002</X>
+							<Y>0</Y>
+							<Z>0.32654113</Z>
+							<R00>0.99956399</R00>
+							<R01>0</R01>
+							<R02>-0.029532</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.029532</R20>
+							<R21>0</R21>
+							<R22>0.99956399</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000003C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.1536987e-07</X>
+								<Y>0.022194743</Y>
+								<Z>0.20802706</Z>
+								<R00>0.939403</R00>
+								<R01>-0.16309798</R01>
+								<R02>0.30153</R02>
+								<R10>0.16504197</R10>
+								<R11>0.98609978</R11>
+								<R12>0.019201996</R12>
+								<R20>-0.30047101</R20>
+								<R21>0.031726994</R21>
+								<R22>0.95326298</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000003D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>4.6938658e-07</X>
+								<Y>0.090969145</Y>
+								<Z>0.037194848</Z>
+								<R00>0.98966599</R00>
+								<R01>0.096920982</R01>
+								<R02>-0.105679</R02>
+								<R10>-0.076516986</R10>
+								<R11>0.98023778</R11>
+								<R12>0.18242697</R12>
+								<R20>0.121271</R20>
+								<R21>-0.17245497</R21>
+								<R22>0.97752398</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000003E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248249</X>
+								<Y>-0.16760367</Y>
+								<Z>-0.10365307</Z>
+								<R00>-0.078994997</R00>
+								<R01>0.46691993</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9713819</R10>
+								<R11>0.16247894</R11>
+								<R12>0.17325798</R12>
+								<R20>0.224003</R20>
+								<R21>0.86924487</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000003F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.073470056</X>
+								<Y>0.82786524</Y>
+								<Z>-0.0023986101</Z>
+								<R00>-0.96329099</R00>
+								<R01>-0.23282497</R01>
+								<R02>0.133652</R02>
+								<R10>0.091335982</R10>
+								<R11>-0.75238079</R11>
+								<R12>-0.65236491</R12>
+								<R20>0.252444</R20>
+								<R21>-0.61620986</R21>
+								<R22>0.74602699</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000040">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-1.7136335e-07</X>
+								<Y>3.3527613e-07</Y>
+								<Z>-5.6624413e-07</Z>
+								<R00>0.98237401</R00>
+								<R01>0.099918999</R01>
+								<R02>-0.157977</R02>
+								<R10>-0.075866997</R10>
+								<R11>0.98553199</R11>
+								<R12>0.151564</R12>
+								<R20>0.170836</R20>
+								<R21>-0.13690799</R21>
+								<R22>0.97574198</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000041">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.40000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000042">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000043">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-0.031877004</X>
+							<Y>0</Y>
+							<Z>0.40958104</Z>
+							<R00>0.99946499</R00>
+							<R01>0</R01>
+							<R02>-0.032708999</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.032708999</R20>
+							<R21>0</R21>
+							<R22>0.99946499</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000044">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.023329556</X>
+								<Y>0.032316208</Y>
+								<Z>0.30732954</Z>
+								<R00>0.846672</R00>
+								<R01>-0.15048897</R01>
+								<R02>0.51039201</R02>
+								<R10>0.18197297</R10>
+								<R11>0.98323077</R11>
+								<R12>-0.011964998</R12>
+								<R20>-0.50003302</R20>
+								<R21>0.10300799</R21>
+								<R22>0.85985798</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000045">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>8.9406967e-08</X>
+								<Y>0.020490289</Y>
+								<Z>0.044761151</Z>
+								<R00>0.994169</R00>
+								<R01>0.096211985</R01>
+								<R02>-0.048686001</R02>
+								<R10>-0.086542986</R10>
+								<R11>0.98128974</R11>
+								<R12>0.17199098</R12>
+								<R20>0.064323001</R20>
+								<R21>-0.16677497</R21>
+								<R22>0.983895</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000046">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248237</X>
+								<Y>-0.16760343</Y>
+								<Z>-0.10595605</Z>
+								<R00>-0.080086</R00>
+								<R01>0.46673393</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9717589</R10>
+								<R11>0.16020794</R11>
+								<R12>0.17325798</R12>
+								<R20>0.22197101</R20>
+								<R21>0.86976588</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000047">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.17315039</X>
+								<Y>0.8278662</Y>
+								<Z>-0.00303936</Z>
+								<R00>-0.87210101</R00>
+								<R01>-0.44827694</R01>
+								<R02>0.19618499</R02>
+								<R10>0.27209693</R10>
+								<R11>-0.77748877</R11>
+								<R12>-0.56698686</R12>
+								<R20>0.406699</R20>
+								<R21>-0.44108793</R21>
+								<R22>0.80002397</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000048">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.2351742e-08</X>
+								<Y>-1.1920929e-07</Y>
+								<Z>2.682209e-07</Z>
+								<R00>0.98049098</R00>
+								<R01>0.093195997</R01>
+								<R02>-0.17306601</R02>
+								<R10>-0.066248998</R10>
+								<R11>0.98562402</R11>
+								<R12>0.155426</R12>
+								<R20>0.185063</R20>
+								<R21>-0.140928</R21>
+								<R22>0.97256899</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000049">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.44999999</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000004A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000004B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-0.023493981</X>
+							<Y>0</Y>
+							<Z>0.22404183</Z>
+							<R00>0.99978</R00>
+							<R01>0</R01>
+							<R02>-0.020957001</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.020957001</R20>
+							<R21>0</R21>
+							<R22>0.99978</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000004C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.10212547</X>
+								<Y>0.21693689</Y>
+								<Z>0.32790419</Z>
+								<R00>0.81649101</R00>
+								<R01>-0.086501986</R01>
+								<R02>0.57084101</R02>
+								<R10>0.11361498</R10>
+								<R11>0.99345279</R11>
+								<R12>-0.011964998</R12>
+								<R20>-0.56606901</R20>
+								<R21>0.074624985</R21>
+								<R22>0.82097298</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000004D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>8.1211329e-07</X>
+								<Y>0.041739345</Y>
+								<Z>0.044109493</Z>
+								<R00>0.994425</R00>
+								<R01>0.093314983</R01>
+								<R02>-0.049109999</R02>
+								<R10>-0.087286986</R10>
+								<R11>0.98973674</R11>
+								<R12>0.11314598</R12>
+								<R20>0.059165001</R20>
+								<R21>-0.10822798</R21>
+								<R22>0.99236399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000004E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248148</X>
+								<Y>-0.16760381</Y>
+								<Z>-0.10626087</Z>
+								<R00>-0.140283</R00>
+								<R01>0.45229894</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9843539</R10>
+								<R11>0.032082986</R11>
+								<R12>0.17325798</R12>
+								<R20>0.106622</R20>
+								<R21>0.89128888</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000004F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.18797711</X>
+								<Y>0.82786655</Y>
+								<Z>-0.0032790303</Z>
+								<R00>-0.88444901</R00>
+								<R01>-0.44016895</R01>
+								<R02>0.154926</R02>
+								<R10>0.35463294</R10>
+								<R11>-0.84981877</R11>
+								<R12>-0.38992795</R12>
+								<R20>0.30329299</R20>
+								<R21>-0.28992894</R21>
+								<R22>0.90771902</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000050">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.4901161e-08</X>
+								<Y>-1.7881393e-07</Y>
+								<Z>0</Z>
+								<R00>0.98121297</R00>
+								<R01>0.087924004</R01>
+								<R02>-0.171729</R02>
+								<R10>-0.060826</R10>
+								<R11>0.985704</R11>
+								<R12>0.15712699</R12>
+								<R20>0.183089</R20>
+								<R21>-0.143729</R21>
+								<R22>0.97253299</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000051">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.5</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000052">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000053">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.00088900002</X>
+							<Y>0</Y>
+							<Z>-0.105479</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>-9.1000002e-05</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>9.1000002e-05</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000054">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.2448296</X>
+								<Y>0.56228948</Y>
+								<Z>0.33993116</Z>
+								<R00>0.80753702</R00>
+								<R01>0.013710998</R01>
+								<R02>0.58965802</R02>
+								<R10>-0.0082409978</R10>
+								<R11>0.99989474</R11>
+								<R12>-0.011964998</R12>
+								<R20>-0.58976001</R20>
+								<R21>0.0048029991</R21>
+								<R22>0.80756402</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000055">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.2782555e-07</X>
+								<Y>0.088225126</Y>
+								<Z>0.042685181</Z>
+								<R00>0.99488199</R00>
+								<R01>0.088123985</R01>
+								<R02>-0.049445</R02>
+								<R10>-0.087844983</R10>
+								<R11>0.99610376</R11>
+								<R12>0.007782999</R12>
+								<R20>0.049938001</R20>
+								<R21>-0.0033999996</R21>
+								<R22>0.99874699</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000056">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248189</X>
+								<Y>-0.16760381</Y>
+								<Z>-0.10688013</Z>
+								<R00>-0.235451</R00>
+								<R01>0.41087294</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.96769887</R10>
+								<R11>-0.18313894</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.090115003</R20>
+								<R21>0.8931089</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000057">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.19305252</X>
+								<Y>0.8278659</Y>
+								<Z>-0.003587544</Z>
+								<R00>-0.96608502</R00>
+								<R01>-0.25768194</R01>
+								<R02>0.016758</R02>
+								<R10>0.25745693</R10>
+								<R11>-0.96618176</R11>
+								<R12>-0.014439998</R12>
+								<R20>0.019912001</R20>
+								<R21>-0.0096359979</R21>
+								<R22>0.99975502</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000058">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.7136335e-07</X>
+								<Y>2.682209e-07</Y>
+								<Z>4.4703484e-07</Z>
+								<R00>0.98858798</R00>
+								<R01>0.072324</R01>
+								<R02>-0.132145</R02>
+								<R10>-0.050760999</R10>
+								<R11>0.98584098</R11>
+								<R12>0.159813</R12>
+								<R20>0.14183199</R20>
+								<R21>-0.151282</R21>
+								<R22>0.97826201</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000059">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.55000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000005A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000005B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.01558</X>
+							<Y>0</Y>
+							<Z>-0.106796</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000005C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.2133981</X>
+								<Y>0.50062311</Y>
+								<Z>0.33816433</Z>
+								<R00>0.80760902</R00>
+								<R01>-0.0084259985</R01>
+								<R02>0.58965802</R02>
+								<R10>0.019165996</R10>
+								<R11>0.99974477</R11>
+								<R12>-0.011964998</R12>
+								<R20>-0.58940703</R20>
+								<R21>0.020963997</R21>
+								<R22>0.80756402</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000005D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.7881393e-07</X>
+								<Y>0.11337048</Y>
+								<Z>0.041971475</Z>
+								<R00>0.99478602</R00>
+								<R01>0.089198984</R01>
+								<R02>-0.049435001</R02>
+								<R10>-0.087806985</R10>
+								<R11>0.99569577</R11>
+								<R12>0.029644996</R12>
+								<R20>0.051865999</R20>
+								<R21>-0.025148997</R21>
+								<R22>0.99833697</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000005E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248237</X>
+								<Y>-0.16760373</Y>
+								<Z>-0.10712409</Z>
+								<R00>-0.229332</R00>
+								<R01>0.41431993</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9703089</R10>
+								<R11>-0.16876894</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.076862</R20>
+								<R21>0.89434689</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000005F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.1686873</X>
+								<Y>0.82786721</Y>
+								<Z>-0.0036608875</Z>
+								<R00>-0.99162102</R00>
+								<R01>-0.11652599</R01>
+								<R02>-0.055768002</R02>
+								<R10>0.10795698</R10>
+								<R11>-0.98457974</R11>
+								<R12>0.13765398</R12>
+								<R20>-0.070947997</R20>
+								<R21>0.13047998</R21>
+								<R22>0.98890901</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000060">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.8428774e-08</X>
+								<Y>2.3841858e-07</Y>
+								<Z>3.5762787e-07</Z>
+								<R00>0.99227703</R00>
+								<R01>0.064547002</R01>
+								<R02>-0.105928</R02>
+								<R10>-0.046978001</R10>
+								<R11>0.98588699</R11>
+								<R12>0.160689</R12>
+								<R20>0.114805</R20>
+								<R21>-0.15447199</R21>
+								<R22>0.98130399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000061">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.60000002</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000062">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000063">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.048397999</X>
+							<Y>0</Y>
+							<Z>-0.106796</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000064">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.035205081</X>
+								<Y>0.14399034</Y>
+								<Z>0.31064749</Z>
+								<R00>0.834454</R00>
+								<R01>-0.13831797</R01>
+								<R02>0.53343701</R02>
+								<R10>0.17095497</R10>
+								<R11>0.98520577</R11>
+								<R12>-0.011964998</R12>
+								<R20>-0.52389002</R20>
+								<R21>0.10117798</R21>
+								<R22>0.84575498</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000065">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>5.5879354e-07</X>
+								<Y>0.16538513</Y>
+								<Z>0.04061681</Z>
+								<R00>0.99423599</R00>
+								<R01>0.095430985</R01>
+								<R02>-0.048864</R02>
+								<R10>-0.086765982</R10>
+								<R11>0.98391575</R11>
+								<R12>0.15614797</R12>
+								<R20>0.062980004</R20>
+								<R21>-0.15100797</R21>
+								<R22>0.98652399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000066">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248213</X>
+								<Y>-0.16760424</Y>
+								<Z>-0.10748774</Z>
+								<R00>-0.173454</R00>
+								<R01>0.44064495</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98402089</R10>
+								<R11>-0.041037984</R11>
+								<R12>0.17325798</R12>
+								<R20>0.040199999</R20>
+								<R21>0.89674288</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000067">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.024898343</X>
+								<Y>0.82786626</Y>
+								<Z>-0.0036690831</Z>
+								<R00>-0.977157</R00>
+								<R01>0.17152096</R01>
+								<R02>-0.125476</R02>
+								<R10>-0.17857897</R10>
+								<R11>-0.98278975</R11>
+								<R12>0.047262993</R12>
+								<R20>-0.11521</R20>
+								<R21>0.068590984</R21>
+								<R22>0.99097002</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000068">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.7252903e-09</X>
+								<Y>1.4156103e-07</Y>
+								<Z>3.5762787e-07</Z>
+								<R00>0.99741101</R00>
+								<R01>0.052726001</R01>
+								<R02>-0.048895001</R02>
+								<R10>-0.044215001</R10>
+								<R11>0.98592502</R11>
+								<R12>0.16123299</R12>
+								<R20>0.056708001</R20>
+								<R21>-0.158654</R21>
+								<R22>0.985704</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000069">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.64999998</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000006A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000006B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.06639</X>
+							<Y>0</Y>
+							<Z>-0.105959</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000006C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.6566129e-07</X>
+								<Y>0.015224397</Y>
+								<Z>0.2759749</Z>
+								<R00>0.87296098</R00>
+								<R01>-0.17112297</R01>
+								<R02>0.456788</R02>
+								<R10>0.19836497</R10>
+								<R11>0.98005474</R11>
+								<R12>-0.011942999</R12>
+								<R20>-0.44563401</R20>
+								<R21>0.10103598</R21>
+								<R22>0.88949502</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000006D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>7.4505806e-08</X>
+								<Y>0.19188046</Y>
+								<Z>0.040000349</Z>
+								<R00>0.99407101</R00>
+								<R01>0.096953988</R01>
+								<R02>-0.049215999</R02>
+								<R10>-0.086238988</R10>
+								<R11>0.97872174</R11>
+								<R12>0.18618897</R12>
+								<R20>0.066220999</R20>
+								<R21>-0.18083997</R21>
+								<R22>0.98128098</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000006E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248172</X>
+								<Y>-0.16760346</Y>
+								<Z>-0.10760987</Z>
+								<R00>-0.13753</R00>
+								<R01>0.45314395</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98414087</R10>
+								<R11>0.038067985</R11>
+								<R12>0.17325798</R12>
+								<R20>0.11204</R20>
+								<R21>0.89062387</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000006F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.060852379</X>
+								<Y>0.8278656</Y>
+								<Z>-0.0036114454</Z>
+								<R00>-0.94307399</R00>
+								<R01>0.30139893</R01>
+								<R02>-0.14060301</R02>
+								<R10>-0.29735595</R10>
+								<R11>-0.95348579</R11>
+								<R12>-0.049434993</R12>
+								<R20>-0.148963</R20>
+								<R21>-0.0048119989</R21>
+								<R22>0.98883098</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000070">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.0046871e-07</X>
+								<Y>2.2351742e-08</Y>
+								<Z>5.9604645e-08</Z>
+								<R00>0.99847299</R00>
+								<R01>0.051697001</R01>
+								<R02>-0.019486001</R02>
+								<R10>-0.047904</R10>
+								<R11>0.985825</R11>
+								<R12>0.16079099</R12>
+								<R20>0.027523</R20>
+								<R21>-0.159612</R21>
+								<R22>0.98679602</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000071">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.69999999</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000072">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000073">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.105965</X>
+							<Y>0</Y>
+							<Z>0.114139</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000074">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.5390258e-07</X>
+								<Y>-0.058448732</Y>
+								<Z>0.13756767</Z>
+								<R00>0.95051098</R00>
+								<R01>-0.18641198</R01>
+								<R02>0.24855299</R02>
+								<R10>0.19418897</R10>
+								<R11>0.98093975</R11>
+								<R12>-0.0069179991</R12>
+								<R20>-0.24252599</R20>
+								<R21>0.054841992</R21>
+								<R22>0.96859401</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000075">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-5.075708e-08</X>
+								<Y>0.24529469</Y>
+								<Z>0.038945556</Z>
+								<R00>0.970303</R00>
+								<R01>0.10305998</R01>
+								<R02>-0.218839</R02>
+								<R10>-0.065447986</R10>
+								<R11>0.98280579</R11>
+								<R12>0.17265497</R12>
+								<R20>0.23287</R20>
+								<R21>-0.15320498</R21>
+								<R22>0.96036398</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000076">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248189</X>
+								<Y>-0.16760376</Y>
+								<Z>-0.10774204</Z>
+								<R00>-0.086507</R00>
+								<R01>0.46558595</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.9738729</R10>
+								<R11>0.14680794</R11>
+								<R12>0.17325798</R12>
+								<R20>0.20997</R20>
+								<R21>0.87274086</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000077">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.19456264</X>
+								<Y>0.82786709</Y>
+								<Z>-0.0033980608</Z>
+								<R00>-0.87069798</R00>
+								<R01>0.47063795</R01>
+								<R02>-0.142775</R02>
+								<R10>-0.42672294</R10>
+								<R11>-0.86725575</R11>
+								<R12>-0.25646594</R12>
+								<R20>-0.244525</R20>
+								<R21>-0.16237897</R21>
+								<R22>0.95595002</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000078">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.7939677e-08</X>
+								<Y>2.2351742e-07</Y>
+								<Z>3.8743019e-07</Z>
+								<R00>0.99760801</R00>
+								<R01>0.057417002</R01>
+								<R02>0.038486</R02>
+								<R10>-0.062829003</R10>
+								<R11>0.98534101</R11>
+								<R12>0.15860701</R12>
+								<R20>-0.028814999</R20>
+								<R21>-0.16064601</R21>
+								<R22>0.98659098</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000079">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.75</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000007A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000007B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.12821101</X>
+							<Y>0</Y>
+							<Z>0.28485999</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000007C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>7.4505806e-08</X>
+								<Y>-0.065914094</Y>
+								<Z>0.060429454</Z>
+								<R00>0.97332603</R00>
+								<R01>-0.18450397</R01>
+								<R02>0.136365</R02>
+								<R10>0.18665998</R10>
+								<R11>0.98241979</R11>
+								<R12>-0.0030809995</R12>
+								<R20>-0.13339999</R20>
+								<R21>0.028451996</R21>
+								<R22>0.99065399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000007D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-3.7252903e-07</X>
+								<Y>0.27204996</Y>
+								<Z>0.038548529</Z>
+								<R00>0.92699802</R00>
+								<R01>0.097001985</R01>
+								<R02>-0.362304</R02>
+								<R10>-0.044556994</R10>
+								<R11>0.98761779</R11>
+								<R12>0.15041797</R12>
+								<R20>0.37240899</R20>
+								<R21>-0.12329399</R21>
+								<R22>0.919842</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000007E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248189</X>
+								<Y>-0.16760403</Y>
+								<Z>-0.10775363</Z>
+								<R00>-0.090862997</R00>
+								<R01>0.46475595</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97520489</R10>
+								<R11>0.13768394</R11>
+								<R12>0.17325798</R12>
+								<R20>0.20179</R20>
+								<R21>0.8746689</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000007F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.20118797</X>
+								<Y>0.82786745</Y>
+								<Z>-0.003246665</Z>
+								<R00>-0.87628102</R00>
+								<R01>0.46826994</R01>
+								<R02>-0.113378</R02>
+								<R10>-0.40334395</R10>
+								<R11>-0.84169775</R11>
+								<R12>-0.35896993</R12>
+								<R20>-0.26352501</R20>
+								<R21>-0.26882794</R21>
+								<R22>0.92643702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000080">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-7.4505806e-09</X>
+								<Y>-4.6938658e-07</Y>
+								<Z>0</Z>
+								<R00>0.995915</R00>
+								<R01>0.061758</R01>
+								<R02>0.065880001</R02>
+								<R10>-0.071468003</R10>
+								<R11>0.985008</R11>
+								<R12>0.157006</R12>
+								<R20>-0.055195998</R20>
+								<R21>-0.161072</R21>
+								<R22>0.98539799</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000081">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.80000001</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000082">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000083">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.187562</X>
+							<Y>0</Y>
+							<Z>0.47407001</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000084">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>2.9802322e-07</X>
+								<Y>-0.025363982</Y>
+								<Z>-0.019307047</Z>
+								<R00>0.98834401</R00>
+								<R01>-0.15222298</R01>
+								<R02>-0.002111</R02>
+								<R10>0.15222597</R10>
+								<R11>0.98834479</R11>
+								<R12>0.0012389998</R12>
+								<R20>0.001898</R20>
+								<R21>-0.0015459998</R21>
+								<R22>0.99999702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000085">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>6.8545341e-07</X>
+								<Y>0.32531303</Y>
+								<Z>0.038192481</Z>
+								<R00>0.80190301</R00>
+								<R01>0.051676992</R01>
+								<R02>-0.59521502</R02>
+								<R10>0.0077669988</R10>
+								<R11>0.99526578</R11>
+								<R12>0.096872985</R12>
+								<R20>0.597404</R20>
+								<R21>-0.082304984</R21>
+								<R22>0.79770601</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000086">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248213</X>
+								<Y>-0.16760406</Y>
+								<Z>-0.10767502</Z>
+								<R00>-0.167807</R00>
+								<R01>0.44282594</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98446488</R10>
+								<R11>-0.028456993</R11>
+								<R12>0.17325798</R12>
+								<R20>0.051658999</R20>
+								<R21>0.89615589</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000087">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.15196991</X>
+								<Y>0.82786632</Y>
+								<Z>-0.0028719306</Z>
+								<R00>-0.97981697</R00>
+								<R01>0.19754097</R01>
+								<R02>0.030607</R02>
+								<R10>-0.18196197</R10>
+								<R11>-0.81799376</R11>
+								<R12>-0.54568887</R12>
+								<R20>-0.082759999</R20>
+								<R21>-0.54024488</R21>
+								<R22>0.83742899</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000088">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-8.1956387e-08</X>
+								<Y>-1.4901161e-07</Y>
+								<Z>2.3841858e-07</Z>
+								<R00>0.99132901</R00>
+								<R01>0.068467997</R01>
+								<R02>0.112154</R02>
+								<R10>-0.085318998</R10>
+								<R11>0.98452002</R11>
+								<R12>0.15310401</R12>
+								<R20>-0.099935003</R20>
+								<R21>-0.16134501</R21>
+								<R22>0.98182499</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000089">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.85000002</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000008A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000008B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.23288301</X>
+							<Y>0</Y>
+							<Z>0.309843</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000008C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.5017729e-07</X>
+								<Y>0.032794952</Y>
+								<Z>-0.011966735</Z>
+								<R00>0.99636197</R00>
+								<R01>-0.085200988</R01>
+								<R02>-0.0020959999</R02>
+								<R10>0.085202985</R10>
+								<R11>0.99636275</R11>
+								<R12>0.00076799991</R12>
+								<R20>0.002023</R20>
+								<R21>-0.00094399991</R21>
+								<R22>0.99999797</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000008D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>5.9604645e-07</X>
+								<Y>0.35168302</Y>
+								<Z>0.040273815</Z>
+								<R00>0.74139398</R00>
+								<R01>-0.019921996</R01>
+								<R02>-0.670775</R02>
+								<R10>0.065514982</R10>
+								<R11>0.99693274</R11>
+								<R12>0.042802993</R12>
+								<R20>0.66786498</R20>
+								<R21>-0.075679988</R21>
+								<R22>0.74042499</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000008E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248166</X>
+								<Y>-0.16760436</Y>
+								<Z>-0.10758775</Z>
+								<R00>-0.209875</R00>
+								<R01>0.42450693</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97708988</R10>
+								<R11>-0.12359697</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.035310999</R20>
+								<R21>0.89694887</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000008F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.11838648</X>
+								<Y>0.82786554</Y>
+								<Z>-0.0026531816</Z>
+								<R00>-0.995121</R00>
+								<R01>-0.028599996</R01>
+								<R02>0.094428003</R02>
+								<R10>-0.036156993</R10>
+								<R11>-0.78477174</R11>
+								<R12>-0.61872888</R12>
+								<R20>0.091799997</R20>
+								<R21>-0.61912489</R21>
+								<R22>0.77990901</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000090">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-3.7997961e-07</X>
+								<Y>-2.0116568e-07</Y>
+								<Z>-1.4901161e-07</Z>
+								<R00>0.98979801</R00>
+								<R01>0.069179997</R01>
+								<R02>0.124553</R02>
+								<R10>-0.087811999</R10>
+								<R11>0.98463601</R11>
+								<R12>0.15093499</R12>
+								<R20>-0.112197</R20>
+								<R21>-0.16033199</R21>
+								<R22>0.98066598</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000091">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.89999998</float>
+			</Properties>
+			<Item class="Pose" referent="RBX00000000000000000000000000000092">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX00000000000000000000000000000093">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.174511</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX00000000000000000000000000000094">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.4610275e-07</X>
+								<Y>0.09399271</Y>
+								<Z>-5.9604645e-08</Z>
+								<R00>0.99999797</R00>
+								<R01>0</R01>
+								<R02>-0.0019650001</R02>
+								<R10>4.3368087e-19</R10>
+								<R11>0.99999976</R11>
+								<R12>-0.00016099997</R12>
+								<R20>0.0019650001</R20>
+								<R21>0.00016099997</R21>
+								<R22>0.99999797</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000095">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-5.6624413e-07</X>
+								<Y>0.40349096</Y>
+								<Z>0.053962022</Z>
+								<R00>0.69500101</R00>
+								<R01>-0.10699999</R01>
+								<R02>-0.71100301</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70676398</R20>
+								<R21>-0.080054983</R21>
+								<R22>0.702905</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000096">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248154</X>
+								<Y>-0.16760436</Y>
+								<Z>-0.10725567</Z>
+								<R00>-0.235953</R00>
+								<R01>0.41058493</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.96747488</R10>
+								<R11>-0.18432094</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.091206998</R20>
+								<R21>0.89299786</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000097">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.048991382</X>
+								<Y>0.82786417</Y>
+								<Z>-0.0021600127</Z>
+								<R00>-0.87652999</R00>
+								<R01>-0.44089895</R01>
+								<R02>0.19314</R02>
+								<R10>0.20777197</R10>
+								<R11>-0.70850176</R11>
+								<R12>-0.67442888</R12>
+								<R20>0.434196</R20>
+								<R21>-0.55102789</R21>
+								<R22>0.71262997</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX00000000000000000000000000000098">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>4.1350722e-07</X>
+								<Y>1.6391277e-07</Y>
+								<Z>-5.9604645e-07</Z>
+								<R00>0.99089402</R00>
+								<R01>0.067741998</R01>
+								<R02>0.116366</R02>
+								<R10>-0.084583998</R10>
+								<R11>0.985587</R11>
+								<R12>0.146506</R12>
+								<R20>-0.104765</R20>
+								<R21>-0.15501501</R21>
+								<R22>0.982342</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX00000000000000000000000000000099">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.94999999</float>
+			</Properties>
+			<Item class="Pose" referent="RBX0000000000000000000000000000009A">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX0000000000000000000000000000009B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.17895301</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0000000000000000000000000000009C">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-8.7893568e-09</X>
+								<Y>0.073910892</Y>
+								<Z>2.3841858e-07</Z>
+								<R00>0.99999797</R00>
+								<R01>-1.9999995e-06</R01>
+								<R02>-0.001835</R02>
+								<R10>3.469447e-18</R10>
+								<R11>0.99999875</R11>
+								<R12>-0.0010859998</R12>
+								<R20>0.001835</R20>
+								<R21>0.0010859998</R21>
+								<R22>0.99999797</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000009D">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-3.8743019e-07</X>
+								<Y>0.42871261</Y>
+								<Z>0.064720184</Z>
+								<R00>0.69700199</R00>
+								<R01>-0.10722598</R01>
+								<R02>-0.70900702</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70479</R20>
+								<R21>-0.079751983</R21>
+								<R22>0.70491898</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000009E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248225</X>
+								<Y>-0.16760397</Y>
+								<Z>-0.10681075</Z>
+								<R00>-0.21315999</R00>
+								<R01>0.42286795</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97610289</R10>
+								<R11>-0.13116793</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.042263001</R20>
+								<R21>0.89664787</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX0000000000000000000000000000009F">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.016780466</X>
+								<Y>0.82786572</Y>
+								<Z>-0.0018907189</Z>
+								<R00>-0.79913902</R00>
+								<R01>-0.55597287</R01>
+								<R02>0.22862799</R02>
+								<R10>0.28592995</R10>
+								<R11>-0.68608475</R11>
+								<R12>-0.66897786</R12>
+								<R20>0.52879202</R20>
+								<R21>-0.46923494</R21>
+								<R22>0.70724702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A0">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-1.1175871e-08</X>
+								<Y>8.1956387e-08</Y>
+								<Z>4.7683716e-07</Z>
+								<R00>0.99188</R00>
+								<R01>0.066362001</R01>
+								<R02>0.108491</R02>
+								<R10>-0.081770003</R10>
+								<R11>0.986139</R11>
+								<R12>0.14437599</R12>
+								<R20>-0.097406</R20>
+								<R21>-0.15207499</R21>
+								<R22>0.98355699</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX000000000000000000000000000000A1">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">1</float>
+			</Properties>
+			<Item class="Pose" referent="RBX000000000000000000000000000000A2">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX000000000000000000000000000000A3">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.074919999</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A4">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-1.2957025e-07</X>
+								<Y>0.0072360635</Y>
+								<Z>2.3841858e-07</Z>
+								<R00>0.99999899</R00>
+								<R01>-4.999999e-06</R01>
+								<R02>-0.001386</R02>
+								<R10>-1.3877788e-17</R10>
+								<R11>0.99999374</R11>
+								<R12>-0.0035179995</R12>
+								<R20>0.001386</R20>
+								<R21>0.0035179995</R21>
+								<R22>0.99999303</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A5">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.7683716e-07</X>
+								<Y>0.47695482</Y>
+								<Z>0.092008173</Z>
+								<R00>0.69653201</R00>
+								<R01>-0.10717299</R01>
+								<R02>-0.70947701</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70525497</R20>
+								<R21>-0.079822987</R21>
+								<R22>0.70444602</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A6">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248201</X>
+								<Y>-0.16760424</Y>
+								<Z>-0.10529399</Z>
+								<R00>-0.108585</R00>
+								<R01>0.46093795</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.97975987</R10>
+								<R11>0.10025697</R11>
+								<R12>0.17325798</R12>
+								<R20>0.168164</R20>
+								<R21>0.88175088</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A7">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.034426779</X>
+								<Y>0.82786578</Y>
+								<Z>-0.001305759</Z>
+								<R00>-0.83582002</R00>
+								<R01>-0.49296394</R01>
+								<R02>0.241643</R02>
+								<R10>0.39128795</R10>
+								<R11>-0.84364176</R11>
+								<R12>-0.36764395</R12>
+								<R20>0.385095</R20>
+								<R21>-0.21273297</R21>
+								<R22>0.89802402</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000A8">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-1.3411045e-07</X>
+								<Y>-8.1956387e-08</Y>
+								<Z>-2.9802322e-08</Z>
+								<R00>0.99422801</R00>
+								<R01>0.063120998</R01>
+								<R02>0.086753003</R02>
+								<R10>-0.074945003</R10>
+								<R11>0.98722398</R11>
+								<R12>0.14060999</R12>
+								<R20>-0.076769002</R20>
+								<R21>-0.1463</R21>
+								<R22>0.98625702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX000000000000000000000000000000A9">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">1.05</float>
+			</Properties>
+			<Item class="Pose" referent="RBX000000000000000000000000000000AA">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX000000000000000000000000000000AB">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.033355001</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX000000000000000000000000000000AC">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.413282e-07</X>
+								<Y>-0.018629193</Y>
+								<Z>-4.1723251e-07</Z>
+								<R00>1</R00>
+								<R01>-3.9999991e-06</R01>
+								<R02>-0.001034</R02>
+								<R10>1.3877788e-17</R10>
+								<R11>0.99999177</R11>
+								<R12>-0.0040109991</R12>
+								<R20>0.001034</R20>
+								<R21>0.0040109991</R21>
+								<R22>0.999991</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000AD">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-4.4703484e-07</X>
+								<Y>0.49938077</Y>
+								<Z>0.10772178</Z>
+								<R00>0.695301</R00>
+								<R01>-0.10703398</R01>
+								<R02>-0.71070403</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.706469</R20>
+								<R21>-0.080009982</R21>
+								<R22>0.70320702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000AE">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248237</X>
+								<Y>-0.16760352</Y>
+								<Z>-0.10441768</Z>
+								<R00>-0.12657399</R00>
+								<R01>0.45632595</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98293787</R10>
+								<R11>0.061763987</R11>
+								<R12>0.17325798</R12>
+								<R20>0.133462</R20>
+								<R21>0.88766688</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000AF">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.04930687</X>
+								<Y>0.827865</Y>
+								<Z>-0.00099599361</Z>
+								<R00>-0.91334498</R00>
+								<R01>-0.38858694</R01>
+								<R02>0.121662</R02>
+								<R10>0.38098794</R10>
+								<R11>-0.92098475</R11>
+								<R12>-0.081450984</R12>
+								<R20>0.1437</R20>
+								<R21>-0.028040996</R21>
+								<R22>0.98922402</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B0">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.3783574e-07</X>
+								<Y>-2.0116568e-07</Y>
+								<Z>-2.9802322e-07</Z>
+								<R00>0.99539798</R00>
+								<R01>0.061848</R01>
+								<R02>0.073193997</R02>
+								<R10>-0.071598001</R10>
+								<R11>0.98768502</R11>
+								<R12>0.13911401</R12>
+								<R20>-0.063689001</R20>
+								<R21>-0.143714</R21>
+								<R22>0.98756802</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX000000000000000000000000000000B1">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">1.1</float>
+			</Properties>
+			<Item class="Pose" referent="RBX000000000000000000000000000000B2">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX000000000000000000000000000000B3">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.021472</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B4">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.3544923e-07</X>
+								<Y>-0.029840112</Y>
+								<Z>-2.9802322e-07</Z>
+								<R00>1</R00>
+								<R01>-1.9999995e-06</R01>
+								<R02>-0.00059100002</R02>
+								<R10>-1.3877788e-17</R10>
+								<R11>0.99999279</R11>
+								<R12>-0.0036229996</R12>
+								<R20>0.00059100002</R20>
+								<R21>0.0036229996</R21>
+								<R22>0.99999303</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B5">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-7.7486038e-07</X>
+								<Y>0.51991457</Y>
+								<Z>0.12427315</Z>
+								<R00>0.69411898</R00>
+								<R01>-0.10689998</R01>
+								<R02>-0.71187901</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70762998</R20>
+								<R21>-0.080188982</R21>
+								<R22>0.70201802</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B6">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248237</X>
+								<Y>-0.16760397</Y>
+								<Z>-0.10357225</Z>
+								<R00>-0.180381</R00>
+								<R01>0.43785495</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.98325187</R10>
+								<R11>-0.056550983</R11>
+								<R12>0.17325798</R12>
+								<R20>0.026053</R20>
+								<R21>0.8972649</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B7">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.052952453</X>
+								<Y>0.82786465</Y>
+								<Z>-0.00067302585</Z>
+								<R00>-0.95765698</R00>
+								<R01>-0.28780994</R01>
+								<R02>0.0076299999</R02>
+								<R10>0.28710493</R10>
+								<R11>-0.95265573</R11>
+								<R12>0.10008498</R12>
+								<R20>-0.021536</R20>
+								<R21>0.098036982</R21>
+								<R22>0.99495</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000B8">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-2.1420419e-07</X>
+								<Y>-1.6391277e-07</Y>
+								<Z>-4.1723251e-07</Z>
+								<R00>0.99643499</R00>
+								<R01>0.061287001</R01>
+								<R02>0.057983</R02>
+								<R10>-0.068800002</R10>
+								<R11>0.98804498</R11>
+								<R12>0.137964</R12>
+								<R20>-0.048834</R20>
+								<R21>-0.141461</R21>
+								<R22>0.98873901</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX000000000000000000000000000000B9">
+			<Properties>
+				<string name="Name">End</string>
+				<float name="Time">1.15</float>
+			</Properties>
+			<Item class="Pose" referent="RBX000000000000000000000000000000BA">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">HumanoidRootPart</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX000000000000000000000000000000BB">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.261814</X>
+							<Y>0</Y>
+							<Z>-0.048533</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX000000000000000000000000000000BC">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>3.7800055e-07</X>
+								<Y>-0.023684919</Y>
+								<Z>-3.5762787e-07</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>-0.00017</R02>
+								<R10>6.9388939e-18</R10>
+								<R11>0.99999678</R11>
+								<R12>-0.0022759996</R12>
+								<R20>0.00017</R20>
+								<R21>0.0022759996</R21>
+								<R22>0.99999702</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000BD">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-7.1525574e-07</X>
+								<Y>0.53722775</Y>
+								<Z>0.14125508</Z>
+								<R00>0.69330102</R00>
+								<R01>-0.10680699</R01>
+								<R02>-0.71268898</R02>
+								<R10>0.13212997</R10>
+								<R11>0.99103075</R11>
+								<R12>-0.019984996</R12>
+								<R20>0.70843101</R20>
+								<R21>-0.080311984</R21>
+								<R22>0.70119601</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000BE">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.42248183</X>
+								<Y>-0.16760397</Y>
+								<Z>-0.10284328</Z>
+								<R00>-0.236389</R00>
+								<R01>0.41033393</R01>
+								<R02>-0.88076401</R02>
+								<R10>-0.96727788</R10>
+								<R11>-0.18534894</R11>
+								<R12>0.17325798</R12>
+								<R20>-0.092155002</R20>
+								<R21>0.89290088</R21>
+								<R22>0.44072199</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000BF">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0.039978415</X>
+								<Y>0.82786703</Y>
+								<Z>-0.00034248829</Z>
+								<R00>-0.98373801</R00>
+								<R01>-0.17411096</R01>
+								<R02>-0.044109002</R02>
+								<R10>0.16253798</R10>
+								<R11>-0.96746778</R11>
+								<R12>0.19387597</R12>
+								<R20>-0.07643</R20>
+								<R21>0.18355396</R21>
+								<R22>0.98003399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX000000000000000000000000000000C0">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>1.2293458e-07</X>
+								<Y>-1.937151e-07</Y>
+								<Z>-4.1723251e-07</Z>
+								<R00>0.99723899</R00>
+								<R01>0.061799999</R01>
+								<R02>0.041177001</R02>
+								<R10>-0.066910997</R10>
+								<R11>0.98827702</R11>
+								<R12>0.137226</R12>
+								<R20>-0.032214001</R20>
+								<R21>-0.13960201</R21>
+								<R22>0.98968399</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX000000000000000000000000000000C1">
+			<Properties>
+				<string name="Name">KF1.125</string>
+				<float name="Time">1.125</float>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

@@ -143,6 +143,11 @@ namespace OWSolver {
         const std::string& getName() const { return name; }
 
         glm::vec3 getBranchIBodyV3() const;
+
+        void setLocalCFrame(const CoordinateFrame& cf) {
+            localCFrame = cf;
+        }
+
     private:
         uint64_t uid;
         std::string name;
