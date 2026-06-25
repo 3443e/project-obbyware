@@ -62,6 +62,8 @@ void OWPlayerController::updateInput(float dt) {
     float camHeading = camera ? camera->getHeading() : 0.0f;
     bool characterFacesCamera = camera && camera->isCharacterFacingCamera();
 
+    prevFloorHit = cachedFloorExists;
+
     // find floor (HumanoidState::findFloor)
     float verticalVel = body->getLinearVelocity().y;
     float legHeight = 2.0f;
@@ -87,6 +89,7 @@ void OWPlayerController::updateInput(float dt) {
     cachedNearFloor = cachedFloorExists;
     if (floorHit) {
         cachedTargetY = targetY;
+        noFloorTimer = 0.0f;
     }
 
     // cache floor friction for movement force scaling
@@ -121,6 +124,7 @@ void OWPlayerController::updateInput(float dt) {
     // humanoid state machine lool
     switch (state) {
         case State::Running:
+            jumpFrameCount = 0;
             if (IsKeyDown(KEY_SPACE)) {
                 state = State::Jumping;
                 jumpTimer = JUMP_DURATION;
@@ -138,23 +142,24 @@ void OWPlayerController::updateInput(float dt) {
                 if (noFloorTimer > 0.125f) {
                     state = State::Freefall;
                 }
-            } else {
-                noFloorTimer = 0.0f;
             }
             break;
 
         case State::Jumping:
+            jumpFrameCount++;
             jumpTimer -= dt;
-            // state transition happens at 60Hz (doSimulatorStateTable)
-            // this gives the character 1 extra frame to move away from trusses before findLadder is called in Freefall state.
             if (finished || jumpTimer <= 0.0f) {
                 state = State::Freefall;
                 finished = false;
-                jumpDir = glm::vec3(0, 1, 0);  // reset jump dir
+                jumpDir = glm::vec3(0, 1, 0);
+            }
+            else if (jumpFrameCount > 1 && !floorHit) {
+                state = State::Freefall;
+                jumpDir = glm::vec3(0, 1, 0);
             }
             break;
-
         case State::Freefall:
+            jumpFrameCount = 0;
             // FACE_LDR -> CLIMBING
             if (facingLadder) {
                 state = State::Climbing;
@@ -177,6 +182,7 @@ void OWPlayerController::updateInput(float dt) {
             break;
 
         case State::Climbing:
+            jumpFrameCount = 0;
             if (!facingLadder) {
                 state = State::Running;
                 break;
@@ -286,7 +292,7 @@ void OWPlayerController::updateInput(float dt) {
         if (moveDir > 0.0f || !floorHit) {
             float speed = glm::length(cachedDesiredVel);
             if (speed < 0.1f) {
-                cachedDesiredVel.y = 0.01f * moveDir;  // slow drift up
+                cachedDesiredVel.y = 0.0;
             } else {
                 cachedDesiredVel.y = 0.7f * speed * moveDir;  // 0.7 * walkSpeed
             }
@@ -412,15 +418,22 @@ void OWPlayerController::substepCallback() {
             return;
         }
 
-        // Jumping.cpp jumpVelocity = velocity dot jumpDir
         float jumpVel = glm::dot(vel, jumpDir);
         float yAccelDesired = K_JUMP_P * (jumpPower - jumpVel);
         if (yAccelDesired <= 0.0f) {
-            finished = true; 
-            // Do NOT change state here btw state machine handles it at 60Hz
+            finished = true;
         } else {
-            float factor = cachedNearFloor ? JUMP_FORCE_FACTOR_GROUND : JUMP_FORCE_FACTOR_AIR;
-            body->accumulateForce(jumpDir * (mass * yAccelDesired * factor));
+            float newForceY = mass * yAccelDesired;
+            bool nearFloor = (cachedFloorDist < 4.0f);
+            
+            if (nearFloor) {
+                float currentForceY = body->getExternalForce().y;
+                if (newForceY > currentForceY) {
+                    body->accumulateForce(jumpDir * (newForceY * 0.52f));
+                }
+            } else {
+                body->accumulateForce(jumpDir * (newForceY * 0.1f));
+            }
         }
         return;
     }

@@ -110,8 +110,10 @@ private:
     float savedTorsoFriction = 0.3f;
     float savedHeadFriction = 0.3f;
     bool frictionZeroed = false;
-    int ladderCheck = 0; 
+    int ladderCheck = 0;
     bool facingLadder = false; 
+    int jumpFrameCount = 0;
+    bool prevFloorHit = false;
     glm::vec3 jumpDir{0, 1, 0};  // jump direction (modified when jumping from ladder)
 
     OWSolver::ConstraintBodyAngularVelocity* uprightConstraint = nullptr;

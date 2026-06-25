@@ -49,6 +49,21 @@ int main() {
     wall2.SetPosition({10, 2, 0});
     wall2.SetColor(DARKGRAY);
 
+
+    OWPart platform1;
+    platform1.InstanceName = "platform";
+    platform1.SetSize({1, 1, 10});
+    platform1.SetAnchored(true);
+    platform1.SetPosition({15, 6, 0});
+    platform1.SetColor(DARKGRAY);
+
+    OWPart platform2;
+    platform2.InstanceName = "platform";
+    platform2.SetSize({1, 1, 10});
+    platform2.SetAnchored(true);
+    platform2.SetPosition({28, 6, 0});
+    platform2.SetColor(DARKGRAY);
+
     OWPart truss;
     truss.InstanceName = "Truss";
     truss.SetSize({2, 100, 2});
