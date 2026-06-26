@@ -132,7 +132,7 @@ void OWPlayerController::updateInput(float dt) {
                     canJump = true; 
                 } else {
                     float tilt = lastFloorNormal.y;
-                    canJump = (tilt > 0.707f) && (noFloorTimer <= 0.125f);  // steepSlopeAngle
+                    canJump = (tilt > STEEP_SLOPE_ANGLE) && (noFloorTimer <= 0.125f);  // steepSlopeAngle
                 }
                 if (canJump) {
                     state = State::Jumping;
@@ -435,16 +435,24 @@ void OWPlayerController::substepCallback() {
         } else {
             float newForceY = mass * yAccelDesired;
             bool nearFloor = cachedNearFloor;
-            
+
             if (nearFloor) {
                 float currentForceY = body->getExternalForce().y;
                 if (newForceY > currentForceY) {
-                    body->accumulateForce(jumpDir * (newForceY * 0.52f));
+                    float appliedForceY = newForceY * 0.52f;
+
+                    float predictedDeltaV = (appliedForceY / mass) * WORLD_DT;
+                    if (jumpVel + predictedDeltaV > jumpPower) {
+                        float maxDeltaV = std::max(0.0f, jumpPower - jumpVel);
+                        appliedForceY = (maxDeltaV / WORLD_DT) * mass;
+                    }
+
+                    body->accumulateForce(jumpDir * appliedForceY);
                 }
             } else {
                 body->accumulateForce(jumpDir * (newForceY * 0.1f));
             }
-        }
+}
         return;
     }
 

@@ -61,7 +61,7 @@ int main() {
     platform2.InstanceName = "platform";
     platform2.SetSize({1, 1, 10});
     platform2.SetAnchored(true);
-    platform2.SetPosition({28, 6, 0});
+    platform2.SetPosition({29, 6, 0});
     platform2.SetColor(DARKGRAY);
 
     OWPart truss;

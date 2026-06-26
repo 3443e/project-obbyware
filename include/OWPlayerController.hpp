@@ -84,7 +84,7 @@ private:
     static constexpr float GRAVITY = 196.2f;
     static constexpr float WORLD_DT = 1.0f / 240.0f;
 
-    static constexpr float STEEP_SLOPE_ANGLE = 0.707f;  // cos of45 maxSlopeAngle default
+    static constexpr float STEEP_SLOPE_ANGLE = 0.01745f;  // cos(89°) 
     float jumpPower = 50.0f;
     float walkSpeed = 16.0f;
     float hipHeight = 0.0f;
