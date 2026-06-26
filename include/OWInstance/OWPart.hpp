@@ -26,6 +26,7 @@ public:
     // rendering
     void SetVisible(bool v) { visible = v; }
     void SetColor(Color c) { color = c; }
+    void SetStudded(bool v) { studded = v; }
 
     void SetTruss(bool t);
     void SetShapeBall();
@@ -43,5 +44,6 @@ private:
     OWSolver::Body* body = nullptr;
     Vector3 size = {1, 1, 1};
     bool visible = true;
+    bool studded = false;
     Color color = WHITE;
 };

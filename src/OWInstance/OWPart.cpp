@@ -1,5 +1,6 @@
 #include "OWInstance/OWPart.hpp"
 #include "OWWorld.hpp"
+#include "OWShaders.hpp"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <raylib.h>
@@ -131,6 +132,8 @@ void OWPart::SetCanCollide(bool c) {
 void OWPart::Render() {
     if (!body || !visible) return;
 
+    rlDrawRenderBatchActive();
+
     glm::vec3 pos = body->getWorldPosition();
     glm::mat3 rot = body->getWorldOrientation();
 
@@ -145,10 +148,69 @@ void OWPart::Render() {
     };
     rlMultMatrixf(matrix);
 
+    float hasStuds = studded ? 1.0f : 0.0f;
+    SetShaderValue(g_lightingShader, GetShaderLocation(g_lightingShader, "hasStuds"), &hasStuds, SHADER_UNIFORM_FLOAT);
+
     switch (body->getShape()) {
-        case OWSolver::Body::Shape_Box:
-            DrawCube({0, 0, 0}, size.x, size.y, size.z, color);
+       case OWSolver::Body::Shape_Box: {
+            rlSetTexture(studded ? g_studTexture.id : g_grayTexture.id);
+            float hx = size.x * 0.5f;
+            float hy = size.y * 0.5f;
+            float hz = size.z * 0.5f;
+            
+            rlBegin(RL_TRIANGLES);
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                
+                rlNormal3f(1, 0, 0);
+                rlTexCoord2f(0, 0); rlVertex3f(hx, -hy,  hz);
+                rlTexCoord2f(size.z, 0); rlVertex3f(hx, -hy, -hz);
+                rlTexCoord2f(size.z, size.y); rlVertex3f(hx,  hy, -hz);
+                rlTexCoord2f(0, 0); rlVertex3f(hx, -hy,  hz);
+                rlTexCoord2f(size.z, size.y); rlVertex3f(hx,  hy, -hz);
+                rlTexCoord2f(0, size.y); rlVertex3f(hx,  hy,  hz);
+
+                rlNormal3f(-1, 0, 0);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, -hz);
+                rlTexCoord2f(size.z, 0); rlVertex3f(-hx, -hy,  hz);
+                rlTexCoord2f(size.z, size.y); rlVertex3f(-hx,  hy,  hz);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, -hz);
+                rlTexCoord2f(size.z, size.y); rlVertex3f(-hx,  hy,  hz);
+                rlTexCoord2f(0, size.y); rlVertex3f(-hx,  hy, -hz);
+
+                rlNormal3f(0, 1, 0);
+                rlTexCoord2f(0, 0);  rlVertex3f(-hx, hy,  hz);
+                rlTexCoord2f(size.x, 0); rlVertex3f( hx, hy,  hz);
+                rlTexCoord2f(size.x, size.z); rlVertex3f( hx, hy, -hz);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, hy,  hz);
+                rlTexCoord2f(size.x, size.z); rlVertex3f( hx, hy, -hz);
+                rlTexCoord2f(0, size.z); rlVertex3f(-hx, hy, -hz);
+                
+                rlNormal3f(0, -1, 0);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, -hz);
+                rlTexCoord2f(size.x, 0); rlVertex3f( hx, -hy, -hz);
+                rlTexCoord2f(size.x, size.z); rlVertex3f( hx, -hy,  hz);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, -hz);
+                rlTexCoord2f(size.x, size.z); rlVertex3f( hx, -hy,  hz);
+                rlTexCoord2f(0, size.z); rlVertex3f(-hx, -hy,  hz);
+
+                rlNormal3f(0, 0, 1);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, hz);
+                rlTexCoord2f(size.x, 0); rlVertex3f( hx, -hy, hz);
+                rlTexCoord2f(size.x, size.y); rlVertex3f( hx,  hy, hz);
+                rlTexCoord2f(0, 0); rlVertex3f(-hx, -hy, hz);
+                rlTexCoord2f(size.x, size.y); rlVertex3f( hx,  hy, hz);
+                rlTexCoord2f(0, size.y); rlVertex3f(-hx,  hy, hz);
+  
+                rlNormal3f(0, 0, -1);
+                rlTexCoord2f(0, 0); rlVertex3f( hx, -hy, -hz);
+                rlTexCoord2f(size.x, 0); rlVertex3f(-hx, -hy, -hz);
+                rlTexCoord2f(size.x, size.y); rlVertex3f(-hx,  hy, -hz);
+                rlTexCoord2f(0, 0); rlVertex3f( hx, -hy, -hz);
+                rlTexCoord2f(size.x, size.y); rlVertex3f(-hx,  hy, -hz);
+                rlTexCoord2f(0, size.y); rlVertex3f( hx,  hy, -hz);
+            rlEnd();
             break;
+        }
             
         case OWSolver::Body::Shape_Sphere: {
             float radius = size.x * 0.5f;
@@ -276,6 +338,7 @@ void OWPart::Render() {
         case OWSolver::Body::Shape_None:
             break;
     }
-
+    
+    rlDrawRenderBatchActive();
     rlPopMatrix();
 }

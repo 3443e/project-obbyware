@@ -20,7 +20,6 @@ int main() {
     
     SetTargetFPS(240);
     InitLighting();
-
     EnableCursor();
 
     // physics world
@@ -32,6 +31,7 @@ int main() {
     floor.SetAnchored(true);
     floor.SetPosition({0, -0.5f, 0});
     floor.SetColor(GRAY);
+    floor.SetStudded(true);
 
     OWPart floor2;
     floor2.InstanceName = "Floor";
@@ -199,15 +199,15 @@ int main() {
         OWMain::CurrentPlayerCamera = camera.getCamera();
 
         BeginDrawing();
-            //ClearBackground({255, 203, 168, 0});
-            ClearBackground({104, 97, 143, 0});  
+            ClearBackground({186, 211, 235, 0});  
             BeginMode3D(OWMain::CurrentPlayerCamera);
+
                 BeginLighting(OWMain::CurrentPlayerCamera);
+                
                 for (OWInstance* child : OWContainer::ContainerInstances) {
                     child->Render();
                 }
                 EndLighting();
-                //DrawGrid(20, 1.0f);
                 controller.renderDebugRays();
             EndMode3D();
 
