@@ -31,12 +31,12 @@ OWRig::OWRig() {
     rightLeg.SetMass(1.0f);
 
     rootPart.SetVisible(false);
-    torso.SetColor(Color{30, 100, 200, 255});
-    head.SetColor(Color{240, 200, 100, 255});
-    leftArm.SetColor(Color{240, 200, 100, 255});
-    rightArm.SetColor(Color{240, 200, 100, 255});
-    leftLeg.SetColor(Color{40, 40, 40, 255});
-    rightLeg.SetColor(Color{40, 40, 40, 255});
+    torso.SetColor(PURPLE);
+    head.SetColor(RAYWHITE);
+    leftArm.SetColor(RAYWHITE);
+    rightArm.SetColor(RAYWHITE);
+    leftLeg.SetColor(RAYWHITE);
+    rightLeg.SetColor(RAYWHITE);
 
     rootPart.getBody()->setName("HumanoidRootPart");
     torso.getBody()->setName("Torso");

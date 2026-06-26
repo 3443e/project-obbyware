@@ -38,9 +38,11 @@ public:
     glm::vec3 getDesiredVel() const { return cachedDesiredVel; }
     float getDesiredAngVelY() const { return cachedDesiredAngVelY; }
     float getFloorDist() const;
-
+    bool isFacingLadder() const { return facingLadder; }
     void setDebugRaysEnabled(bool e) { debugRaysEnabled = e; }
-    void renderDebugRays();  // call inside BeginMode3D
+    
+    // call inside BeginMode3D
+    void renderDebugRays();
 
     enum class State {
         Running,
@@ -50,6 +52,7 @@ public:
         Climbing
     };
     State getState() const { return state; }
+
 private:
     OWPart* part;
     OWCamera* camera = nullptr;
@@ -106,7 +109,8 @@ private:
     bool hadFloorLastFrame = false;           // floor hysteresis
     float cachedFloorY = 0.0f;                // averaged floor Y (for debug)
     bool cachedFloorExists = false;        
-    glm::vec3 cachedFloorNormal{0, 1, 0};    
+    glm::vec3 cachedFloorNormal{0, 1, 0};
+    glm::vec3 lastFloorNormal = glm::vec3(0, 1, 0);  
     float savedTorsoFriction = 0.3f;
     float savedHeadFriction = 0.3f;
     bool frictionZeroed = false;
@@ -128,6 +132,7 @@ private:
         bool hit;
     };
     std::vector<DebugRay> debugRays;
+
     bool debugRaysEnabled = false;
     bool finished = false; 
     void substepCallback();

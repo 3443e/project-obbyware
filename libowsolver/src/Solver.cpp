@@ -153,7 +153,7 @@ namespace OWSolver {
 
         // --- 9. Run PGS kernel ---
         SolveKernel(velStage, posStage, virDVel, virDPos, preJacVel, preJacPos, effVel, effPos, pairs, dimensions, collisionCount, Config);
-
+        
         // --- 10. Cache constraint results ---
         offset = 0;
         for (size_t c = 0; c < constraintCount; c++) {

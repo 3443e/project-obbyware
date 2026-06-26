@@ -204,7 +204,7 @@ int main() {
             EndMode3D();
 
             if (OWDebugFlags::DEBUG_SHOW_INFO) {
-                DrawRectangle(0, 0, 360, 300, (Color) {0, 0, 0, 160});
+                DrawRectangle(0, 0, 360, 320, (Color) {0, 0, 0, 160});
                 DrawText("obbyware", 10, 8, 12, PURPLE);
                 DrawText("----------------------", 10, 24, 10, WHITE);
 
@@ -224,22 +224,33 @@ int main() {
                 DrawText("----------------------", 10, 126, 10, WHITE);
 
                 Color groundedColor = controller.isGrounded() ? GREEN : RED;
-                DrawText(std::string("grounded:    " + std::string(controller.isGrounded() ? "YES" : "no")).c_str(), 10, 138, 10, groundedColor);
+                DrawText(std::string("grounded:    " + std::string(controller.isGrounded() ? "yes" : "no")).c_str(), 10, 138, 10, groundedColor);
                 Color jumpingColor = controller.isJumping() ? YELLOW : GRAY;
-                DrawText(std::string("jumping:     " + std::string(controller.isJumping() ? "YES" : "no")).c_str(), 10, 150, 10, jumpingColor);
+                DrawText(std::string("jumping:     " + std::string(controller.isJumping() ? "yes" : "no")).c_str(), 10, 150, 10, jumpingColor);
                 Color hipColor = controller.isHipEnabled() ? GREEN : GRAY;
-                DrawText(std::string("hip ctrl:    " + std::string(controller.isHipEnabled() ? "ON" : "off")).c_str(), 10, 162, 10, hipColor);
+                DrawText(std::string("hip ctrl:    " + std::string(controller.isHipEnabled() ? "on" : "off")).c_str(), 10, 162, 10, hipColor);
                 float floorDist = controller.getFloorDist();
                 Color floorColor = floorDist < 4.0f ? GREEN : (floorDist < 10.0f ? YELLOW : RED);
                 DrawText(std::string("floor dist:  " + std::to_string(floorDist).substr(0, 5) + " st").c_str(), 10, 174, 10, floorColor);
                 DrawText(std::string("jump timer:  " + std::to_string(controller.getJumpTimer()).substr(0, 5) + "s").c_str(), 10, 186, 10, controller.isJumping() ? YELLOW : GRAY);
                 DrawText(std::string("contacts:    " + std::to_string(world.getContactCount())).c_str(), 10, 198, 10, GREEN);
-                DrawText("----------------------", 10, 212, 10, WHITE);
 
-                DrawText(std::string("shift lock:  " + std::string(camera.isShiftLock() ? "on" : "off")).c_str(), 10, 224, 10, camera.isShiftLock() ? YELLOW : GRAY);
-                DrawText(std::string("first person:" + std::string(camera.isFirstPerson() ? "yes" : "no")).c_str(), 10, 236, 10, camera.isFirstPerson() ? SKYBLUE : GRAY);
-                DrawText(std::string("cam dist:    " + std::to_string(camera.getDistance()).substr(0, 5)).c_str(), 10, 248, 10, WHITE);
-                DrawText("----------------------", 10, 262, 10, WHITE);
+                const char* stateName = "Unknown (wtf)";
+                switch (controller.getState()) {
+                    case OWPlayerController::State::Running:  stateName = "Running";  break;
+                    case OWPlayerController::State::Jumping:  stateName = "Jumping";  break;
+                    case OWPlayerController::State::Freefall: stateName = "Freefall"; break;
+                    case OWPlayerController::State::Landed:   stateName = "Landed";   break;
+                    case OWPlayerController::State::Climbing: stateName = "Climbing"; break;
+                }
+                DrawText(std::string("state:       " + std::string(stateName)).c_str(), 10, 210, 10, ORANGE);
+                DrawText(std::string("facing ladder:  " + std::string(controller.isFacingLadder() ? "yes" : "no")).c_str(), 10, 222, 10, ORANGE);
+                DrawText("----------------------", 10, 236, 10, WHITE);
+
+                DrawText(std::string("shift lock:  " + std::string(camera.isShiftLock() ? "on" : "off")).c_str(), 10, 248, 10, camera.isShiftLock() ? YELLOW : GRAY);
+                DrawText(std::string("first person:" + std::string(camera.isFirstPerson() ? "yes" : "no")).c_str(), 10, 260, 10, camera.isFirstPerson() ? SKYBLUE : GRAY);
+                DrawText(std::string("cam dist:    " + std::to_string(camera.getDistance()).substr(0, 5)).c_str(), 10, 272, 10, WHITE);
+                DrawText("----------------------", 10, 286, 10, WHITE);
             }
 
         EndDrawing();

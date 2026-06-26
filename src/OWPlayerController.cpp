@@ -90,6 +90,7 @@ void OWPlayerController::updateInput(float dt) {
     if (floorHit) {
         cachedTargetY = targetY;
         noFloorTimer = 0.0f;
+        lastFloorNormal = floorNormal;
     }
 
     // cache floor friction for movement force scaling
@@ -126,11 +127,20 @@ void OWPlayerController::updateInput(float dt) {
         case State::Running:
             jumpFrameCount = 0;
             if (IsKeyDown(KEY_SPACE)) {
-                state = State::Jumping;
-                jumpTimer = JUMP_DURATION;
-                noFloorTimer = 0.0f;
-                jumpDir = glm::vec3(0, 1, 0);
-                finished = false;  // reset
+                bool canJump;
+                if (floorHit) {
+                    canJump = true; 
+                } else {
+                    float tilt = lastFloorNormal.y;
+                    canJump = (tilt > 0.707f) && (noFloorTimer <= 0.125f);  // steepSlopeAngle
+                }
+                if (canJump) {
+                    state = State::Jumping;
+                    jumpTimer = JUMP_DURATION;
+                    noFloorTimer = 0.0f;
+                    jumpDir = glm::vec3(0, 1, 0);
+                    finished = false;
+                }
             }
             // FACE_LDR -> CLIMBING
             if (facingLadder) {
@@ -142,22 +152,24 @@ void OWPlayerController::updateInput(float dt) {
                 if (noFloorTimer > 0.125f) {
                     state = State::Freefall;
                 }
+            } else {
+                noFloorTimer = 0.0f;
             }
             break;
 
         case State::Jumping:
-            jumpFrameCount++;
             jumpTimer -= dt;
             if (finished || jumpTimer <= 0.0f) {
                 state = State::Freefall;
                 finished = false;
                 jumpDir = glm::vec3(0, 1, 0);
             }
-            else if (jumpFrameCount > 1 && !floorHit) {
+            else if (!floorHit) {
                 state = State::Freefall;
                 jumpDir = glm::vec3(0, 1, 0);
             }
             break;
+
         case State::Freefall:
             jumpFrameCount = 0;
             // FACE_LDR -> CLIMBING
@@ -185,6 +197,7 @@ void OWPlayerController::updateInput(float dt) {
             jumpFrameCount = 0;
             if (!facingLadder) {
                 state = State::Running;
+                noFloorTimer = floorHit ? 0.0f : 0.126f;
                 break;
             }
             if (IsKeyDown(KEY_SPACE)) {
@@ -321,9 +334,6 @@ void OWPlayerController::updateInput(float dt) {
     static constexpr float FREEFALL_TURN_SPEED = 8.0f;
 
     if (characterFacesCamera) {
-        // INSTANT ROTATION (matches Roblox setFirstPersonRotationalVelocity)
-        // Done at 60Hz (updateInput) to match Roblox's onCameraHeartbeat timing.
-        // This allows Bullet's broadphase to update, enabling corner clipping.
         glm::vec3 newForward = glm::normalize(camera->getLookHorizontal());
         glm::vec3 worldUp(0, 1, 0);
         glm::vec3 newRight = glm::normalize(glm::cross(newForward, worldUp));
@@ -424,7 +434,7 @@ void OWPlayerController::substepCallback() {
             finished = true;
         } else {
             float newForceY = mass * yAccelDesired;
-            bool nearFloor = (cachedFloorDist < 4.0f);
+            bool nearFloor = cachedNearFloor;
             
             if (nearFloor) {
                 float currentForceY = body->getExternalForce().y;
@@ -501,7 +511,6 @@ void OWPlayerController::substepCallback() {
     }
 
     // RUNNING
-    // (PGSFixGroundSinking = true)
     if (hipEnabled) {
         float error = cachedTargetY - pos.y;
         float yAccelDesired = K_ALTITUDE_P * error - K_ALTITUDE_D * vel.y;
@@ -519,9 +528,7 @@ void OWPlayerController::substepCallback() {
         }
     }
 
-
     // more movement force stuff
-    // i forgot why i override y here
     {
         glm::vec3 currentVel = body->getLinearVelocity();
         glm::vec3 velError = cachedDesiredVel - currentVel;
@@ -542,7 +549,14 @@ void OWPlayerController::substepCallback() {
             deltaAccel.z = horizontalAccel.z;
         }
 
-        body->accumulateForce(mass * deltaAccel);
+        glm::vec3 deltaForce = mass * deltaAccel;
+
+        if (cachedFloorExists && cachedFloorFriction > 0.0f) {
+            deltaForce.x *= cachedFloorFriction;
+            deltaForce.z *= cachedFloorFriction;
+        }
+
+        body->accumulateForce(deltaForce);
     }
 
     {
@@ -707,7 +721,9 @@ void OWPlayerController::renderDebugRays() {
 
     bool anyHit = false;
     for (const auto& r : debugRays) {
-        if (r.hit) { anyHit = true; break; }
+        if (r.hit) {
+            anyHit = true; break;
+        }
     }
     if (anyHit) {
         OWSolver::Body* body = part->getBody();
