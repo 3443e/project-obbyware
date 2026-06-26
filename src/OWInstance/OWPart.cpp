@@ -148,99 +148,128 @@ void OWPart::Render() {
     switch (body->getShape()) {
         case OWSolver::Body::Shape_Box:
             DrawCube({0, 0, 0}, size.x, size.y, size.z, color);
-            DrawCubeWires({0, 0, 0}, size.x, size.y, size.z, BLACK);
             break;
             
         case OWSolver::Body::Shape_Sphere: {
             float radius = size.x * 0.5f;
             DrawSphere({0, 0, 0}, radius, color);
-            DrawSphereWires({0, 0, 0}, radius, 16, 16, BLACK);
             break;
         }
         
         case OWSolver::Body::Shape_Cylinder: {
             float halfLen = size.x * 0.5f;
             float radius = size.y * 0.5f;
-            Vector3 start = {-halfLen, 0, 0};
-            Vector3 end = { halfLen, 0, 0};
-            DrawCylinderEx(start, end, radius, radius, 16, color);
-            DrawCylinderWiresEx(start, end, radius, radius, 16, BLACK);
+            int segments = 24;
+            
+            rlBegin(RL_TRIANGLES);
+                rlColor4ub(color.r, color.g, color.b, color.a);
+                
+                for (int i = 0; i < segments; i++) {
+                    float a1 = (float)i / segments * 2.0f * 3.14159265f;
+                    float a2 = (float)(i + 1) / segments * 2.0f * 3.14159265f;
+                    float y1 = cosf(a1) * radius, z1 = sinf(a1) * radius;
+                    float y2 = cosf(a2) * radius, z2 = sinf(a2) * radius;
+                    float ny1 = cosf(a1), nz1 = sinf(a1);
+                    float ny2 = cosf(a2), nz2 = sinf(a2);
+                    
+                    rlNormal3f(ny1, 0, nz1);
+                    rlVertex3f(-halfLen, y1, z1);
+                    rlNormal3f(ny2, 0, nz2);
+                    rlVertex3f(-halfLen, y2, z2);
+                    rlNormal3f(ny2, 0, nz2);
+                    rlVertex3f(halfLen, y2, z2);
+                    
+                    rlNormal3f(ny1, 0, nz1);
+                    rlVertex3f(-halfLen, y1, z1);
+                    rlNormal3f(ny2, 0, nz2);
+                    rlVertex3f(halfLen, y2, z2);
+                    rlNormal3f(ny1, 0, nz1);
+                    rlVertex3f(halfLen, y1, z1);
+                }
+                
+                rlNormal3f(-1, 0, 0);
+                for (int i = 0; i < segments; i++) {
+                    float a1 = (float)i / segments * 2.0f * 3.14159265f;
+                    float a2 = (float)(i + 1) / segments * 2.0f * 3.14159265f;
+                    rlVertex3f(-halfLen, 0, 0);
+                    rlVertex3f(-halfLen, cosf(a2) * radius, sinf(a2) * radius);
+                    rlVertex3f(-halfLen, cosf(a1) * radius, sinf(a1) * radius);
+                }
+                
+                rlNormal3f(1, 0, 0);
+                for (int i = 0; i < segments; i++) {
+                    float a1 = (float)i / segments * 2.0f * 3.14159265f;
+                    float a2 = (float)(i + 1) / segments * 2.0f * 3.14159265f;
+                    rlVertex3f(halfLen, 0, 0);
+                    rlVertex3f(halfLen, cosf(a1) * radius, sinf(a1) * radius);
+                    rlVertex3f(halfLen, cosf(a2) * radius, sinf(a2) * radius);
+                }
+            rlEnd();
             break;
         }
         
-        /* chatgpt'd */
         case OWSolver::Body::Shape_Wedge: {
             glm::vec3 h = {size.x * 0.5f, size.y * 0.5f, size.z * 0.5f};
+            
+            float slopeLen = sqrtf(h.y * h.y + h.z * h.z);
+            float slopeNY = h.z / slopeLen;
+            float slopeNZ = h.y / slopeLen;
+            
             rlBegin(RL_TRIANGLES);
                 rlColor4ub(color.r, color.g, color.b, color.a);
 
-                // 1. Bottom (Normal -Y)
+                // Bottom (Normal -Y)
+                rlNormal3f(0, -1, 0);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y, -h.z);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z);
-                // 2. Front Wall (Normal -Z)
+                // Front Wall (Normal -Z)
+                rlNormal3f(0, 0, -1);
                 rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f(-h.x,  h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
                 rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z); rlVertex3f( h.x, -h.y, -h.z);
-                // 3. Left Wall (Normal -X)
+                // Left Wall (Normal -X)
+                rlNormal3f(-1, 0, 0);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f(-h.x,  h.y, -h.z); rlVertex3f(-h.x, -h.y, -h.z);
-                // 4. Right Wall (Normal +X)
+                // Right Wall (Normal +X)
+                rlNormal3f(1, 0, 0);
                 rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z);
-                // 5. Slope (Normal +Y, +Z)
+                // Slope (Normal +Y/+Z)
+                rlNormal3f(0, slopeNY, slopeNZ);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z); rlVertex3f(-h.x,  h.y, -h.z);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
-            rlEnd();
-
-            // Draw wires for the edges
-            rlBegin(RL_LINES);
-                rlColor4ub(BLACK.r, BLACK.g, BLACK.b, BLACK.a);
-                
-                // Bottom rectangle
-                rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x, -h.y,  h.z);
-                rlVertex3f( h.x, -h.y,  h.z); rlVertex3f( h.x, -h.y, -h.z);
-                rlVertex3f( h.x, -h.y, -h.z); rlVertex3f(-h.x, -h.y, -h.z);
-                rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f(-h.x, -h.y,  h.z);
-                
-                // Front rectangle top edge
-                rlVertex3f(-h.x,  h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
-                
-                // Vertical edges
-                rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f(-h.x,  h.y, -h.z);
-                rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
-                
-                // Slope edges
-                rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f(-h.x,  h.y, -h.z);
-                rlVertex3f( h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
             rlEnd();
             break;
         }
 
         case OWSolver::Body::Shape_CornerWedge: {
             glm::vec3 h = {size.x * 0.5f, size.y * 0.5f, size.z * 0.5f};
+
+            float slope1Len = sqrtf(h.y * h.y + h.z * h.z);
+            float slope1NY = h.z / slope1Len;
+            float slope1NZ = -h.y / slope1Len;
+            
+            float slope2Len = sqrtf(h.y * h.y + h.x * h.x);
+            float slope2NY = h.x / slope2Len;
+            float slope2NX = h.y / slope2Len;
+            
             rlBegin(RL_TRIANGLES);
                 rlColor4ub(color.r, color.g, color.b, color.a);
 
-                // Bottom
+                // Bottom (Normal -Y)
+                rlNormal3f(0, -1, 0);
                 rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z); rlVertex3f(-h.x, -h.y,  h.z);
                 rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z);
-                // Back
+                // Back (Normal -Z)
+                rlNormal3f(0, 0, -1);
                 rlVertex3f( h.x, -h.y, -h.z); rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
-                // Left
+                // Left (Normal -X)
+                rlNormal3f(-1, 0, 0);
                 rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
-                // Front
+                // Front slope (Normal +Y, +Z direction)
+                rlNormal3f(0, slope1NY, slope1NZ);
                 rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
-                // Right
+                // Right slope (Normal +Y, +X direction)
+                rlNormal3f(slope2NX, slope2NY, 0);
                 rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z);
-            rlEnd();
-
-            rlBegin(RL_LINES);
-                rlColor4ub(BLACK.r, BLACK.g, BLACK.b, BLACK.a);
-                rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y, -h.z);
-                rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x, -h.y,  h.z);
-                rlVertex3f( h.x, -h.y,  h.z); rlVertex3f(-h.x, -h.y,  h.z);
-                rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f(-h.x, -h.y, -h.z);
-                rlVertex3f(-h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
-                rlVertex3f( h.x, -h.y, -h.z); rlVertex3f( h.x,  h.y, -h.z);
-                rlVertex3f( h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
-                rlVertex3f(-h.x, -h.y,  h.z); rlVertex3f( h.x,  h.y, -h.z);
             rlEnd();
             break;
         }

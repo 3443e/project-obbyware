@@ -3,6 +3,7 @@
 #include "OWInstance/OWPart.hpp"
 #include "OWInstance/OWContainer.hpp"
 #include "OWWorld.hpp"
+#include "OWShaders.hpp"
 #include "OWPlayerController.hpp"
 #include "OWRig.hpp"
 #include "OWCamera.hpp"
@@ -13,9 +14,13 @@
 int main() {
     OWMain::CurrentMonitorRefreshRate = GetMonitorRefreshRate(GetCurrentMonitor());
 
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(800, 500, "OBBYWARE");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
-    SetTargetFPS(60);
+    
+    SetTargetFPS(240);
+    InitLighting();
+
     EnableCursor();
 
     // physics world
@@ -61,7 +66,7 @@ int main() {
     platform2.InstanceName = "platform";
     platform2.SetSize({1, 1, 10});
     platform2.SetAnchored(true);
-    platform2.SetPosition({29, 6, 0});
+    platform2.SetPosition({28, 6, 0});
     platform2.SetColor(DARKGRAY);
 
     OWPart truss;
@@ -72,21 +77,20 @@ int main() {
     truss.SetColor(BROWN);
     truss.SetTruss(true);
 
-    /*
     OWPart wedge;
     wedge.InstanceName = "Wedge";
     wedge.SetSize({4, 8, 8});
     wedge.SetAnchored(true);
     wedge.SetPosition({-8, 2, 5});
-    wedge.SetColor(GREEN);
+    wedge.SetColor(DARKGRAY);
     wedge.SetShapeWedge();
 
     OWPart ball;
     ball.InstanceName = "Ball";
-    ball.SetSize({23, 23, 23});
+    ball.SetSize({10, 10, 10});
     ball.SetAnchored(true);
     ball.SetPosition({-5, 1.5f, -5});
-    ball.SetColor(BLUE);
+    ball.SetColor(DARKGRAY);
     ball.SetShapeBall();
     
 
@@ -95,7 +99,7 @@ int main() {
     cyl.SetSize({8, 3, 3});
     cyl.SetAnchored(true);
     cyl.SetPosition({8, 1.5f, -5});
-    cyl.SetColor(YELLOW);
+    cyl.SetColor(DARKGRAY);
     cyl.SetShapeCylinder();
     
     OWPart cornerWedge;
@@ -103,9 +107,9 @@ int main() {
     cornerWedge.SetSize({4, 4, 4});
     cornerWedge.SetAnchored(true);
     cornerWedge.SetPosition({15, 2, 5});
-    cornerWedge.SetColor(PURPLE);
+    cornerWedge.SetColor(DARKGRAY);
     cornerWedge.SetShapeCornerWedge();
-    */
+    
     // creating a rig for the player
     OWRig character;
     character.SetPosition({0, 5, 0});
@@ -134,6 +138,8 @@ int main() {
     while (!WindowShouldClose()) {
         if (IsKeyReleased(KEY_F3)) OWDebugFlags::DEBUG_SHOW_INFO = !OWDebugFlags::DEBUG_SHOW_INFO;
         if (IsKeyReleased(KEY_F4)) OWDebugFlags::DEBUG_SHOW_RAYS = !OWDebugFlags::DEBUG_SHOW_RAYS;
+        if (IsKeyReleased(KEY_F11)) ToggleFullscreen();
+
         controller.setDebugRaysEnabled(OWDebugFlags::DEBUG_SHOW_RAYS);
 
         float frameTime = GetFrameTime();
@@ -193,13 +199,15 @@ int main() {
         OWMain::CurrentPlayerCamera = camera.getCamera();
 
         BeginDrawing();
-            ClearBackground({179, 179, 203, 0});
-
+            //ClearBackground({255, 203, 168, 0});
+            ClearBackground({104, 97, 143, 0});  
             BeginMode3D(OWMain::CurrentPlayerCamera);
+                BeginLighting(OWMain::CurrentPlayerCamera);
                 for (OWInstance* child : OWContainer::ContainerInstances) {
                     child->Render();
                 }
-                DrawGrid(20, 1.0f);
+                EndLighting();
+                //DrawGrid(20, 1.0f);
                 controller.renderDebugRays();
             EndMode3D();
 
