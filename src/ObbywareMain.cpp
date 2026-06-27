@@ -34,7 +34,7 @@ int main() {
     floor.SetSize({50, 1, 50});
     floor.SetAnchored(true);
     floor.SetPosition({0, -0.5f, 0});
-    floor.SetColor(DARKGREEN);
+    floor.SetColor(DARKGRAY);
     floor.SetStudded(true);
     floor.SetTransparency(0.5f);
 

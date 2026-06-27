@@ -1,5 +1,7 @@
 #include "OWCamera.hpp"
 #include "OWInstance/OWContainer.hpp"
+#include "OWWorld.hpp"
+#include <functional>
 #include <cmath>
 #include <algorithm>
 
@@ -90,11 +92,28 @@ void OWCamera::updatePosition() {
         focus += right * MOUSE_LOCK_OFFSET;
     }
 
-    glm::vec3 camPos = focus - lookDir * distance;
-    
-    cam.target = toRaylib(focus);
+    glm::vec3 desiredCamPos = focus - lookDir * distance;
+    glm::vec3 actualCamPos = desiredCamPos;
 
-    cam.position = toRaylib(camPos);
+    if (distance > 0.5f && OWWorld::Active) {
+        std::vector<const OWSolver::Body*> ignore;
+        OWSolver::Body* rootBody = target->getBody()->getRoot();
+        if (rootBody) {
+            std::function<void(const OWSolver::Body*)> collect = [&](const OWSolver::Body* b) {
+                ignore.push_back(b);
+                for (auto* c : b->getChildren()) collect(c);
+            };
+            collect(rootBody);
+        }
+
+        OWWorld::RayHit hit;
+        if (OWWorld::Active->raycastClosest(focus, desiredCamPos, hit, ignore)) {
+            actualCamPos = hit.point + hit.normal * 0.5f;
+        }
+    }
+
+    cam.position = toRaylib(actualCamPos);
+    cam.target = toRaylib(focus);
     cam.up = {0, 1, 0};
 }
 
