@@ -3,6 +3,7 @@
 #include "OWDebugFlags.hpp"
 #include "OWInstance/OWPart.hpp"
 #include "OWInstance/OWContainer.hpp"
+#include "OWPlaceLoader.hpp"
 #include "OWWorld.hpp"
 #include "Lighting/OWShaders.hpp"
 #include "OWPlayerController.hpp"
@@ -12,14 +13,14 @@
 #include <string>
 #include <glm/glm.hpp>
 
-int main() {
+int main(int argc, char* argv[]) {
     OWMain::CurrentMonitorRefreshRate = GetMonitorRefreshRate(GetCurrentMonitor());
 
-    SetConfigFlags(FLAG_MSAA_4X_HINT);
+    //SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(800, 500, "OBBYWARE");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     
-    SetTargetFPS(60);
+    //SetTargetFPS(60);
     
     OWShaders::InitOWShaders();
     OWShaders::OWUpdateLightingShaderValues();
@@ -29,91 +30,97 @@ int main() {
     // physics world
     OWWorld world;
 
-    OWPart floor;
-    floor.InstanceName = "Floor";
-    floor.SetSize({50, 1, 50});
-    floor.SetAnchored(true);
-    floor.SetPosition({0, -0.5f, 0});
-    floor.SetColor(DARKGRAY);
-    floor.SetStudded(true);
-    floor.SetTransparency(0.5f);
+    std::vector<OWPart*> loadedParts;
+    if (argc > 1) {
+        std::string placeFN = argv[1];
+        loadedParts = OWPlaceLoader::LoadPlace(placeFN, world);
+    } else {
+        OWPart floor;
+        floor.InstanceName = "Floor";
+        floor.SetSize({50, 1, 50});
+        floor.SetAnchored(true);
+        floor.SetPosition({0, -0.5f, 0});
+        floor.SetColor(DARKGRAY);
+        floor.SetStudded(true);
+        floor.SetTransparency(0.5f);
 
-    OWPart floor2;
-    floor2.InstanceName = "Floor";
-    floor2.SetSize({10, 1, 10});
-    floor2.SetAnchored(true);
-    floor2.SetPosition({0, 0.5f, 0});
-    floor2.SetColor(GRAY);
+        OWPart floor2;
+        floor2.InstanceName = "Floor";
+        floor2.SetSize({10, 1, 10});
+        floor2.SetAnchored(true);
+        floor2.SetPosition({0, 0.5f, 0});
+        floor2.SetColor(GRAY);
 
-    OWPart wall1;
-    wall1.InstanceName = "Wall1";
-    wall1.SetSize({40, 4, 1});
-    wall1.SetAnchored(true);
-    wall1.SetPosition({0, 2, -10});
-    wall1.SetColor(DARKGRAY);
+        OWPart wall1;
+        wall1.InstanceName = "Wall1";
+        wall1.SetSize({40, 4, 1});
+        wall1.SetAnchored(true);
+        wall1.SetPosition({0, 2, -10});
+        wall1.SetColor(DARKGRAY);
 
-    wall1.SetTransparency(0.5f);
-    OWPart wall2;
-    wall2.InstanceName = "Wall2";
-    wall2.SetSize({2, 4, 40});
-    wall2.SetAnchored(true);
-    wall2.SetPosition({10, 2, 0});
-    wall2.SetColor(DARKGRAY);
+        wall1.SetTransparency(0.5f);
+        OWPart wall2;
+        wall2.InstanceName = "Wall2";
+        wall2.SetSize({2, 4, 40});
+        wall2.SetAnchored(true);
+        wall2.SetPosition({10, 2, 0});
+        wall2.SetColor(DARKGRAY);
 
-    OWPart platform1;
-    platform1.InstanceName = "platform";
-    platform1.SetSize({1, 1, 10});
-    platform1.SetAnchored(true);
-    platform1.SetPosition({15, 6, 0});
-    platform1.SetColor(DARKGRAY);
+        OWPart platform1;
+        platform1.InstanceName = "platform";
+        platform1.SetSize({1, 1, 10});
+        platform1.SetAnchored(true);
+        platform1.SetPosition({15, 6, 0});
+        platform1.SetColor(DARKGRAY);
 
-    OWPart platform2;
-    platform2.InstanceName = "platform";
-    platform2.SetSize({1, 1, 10});
-    platform2.SetAnchored(true);
-    platform2.SetPosition({28, 6, 0});
-    platform2.SetColor(DARKGRAY);
+        OWPart platform2;
+        platform2.InstanceName = "platform";
+        platform2.SetSize({1, 1, 10});
+        platform2.SetAnchored(true);
+        platform2.SetPosition({28, 6, 0});
+        platform2.SetColor(DARKGRAY);
 
-    OWPart truss;
-    truss.InstanceName = "Truss";
-    truss.SetSize({2, 100, 2});
-    truss.SetAnchored(true);
-    truss.SetPosition({5, 4.5f, 0});
-    truss.SetColor(BROWN);
-    truss.SetTruss(true);
+        OWPart truss;
+        truss.InstanceName = "Truss";
+        truss.SetSize({2, 100, 2});
+        truss.SetAnchored(true);
+        truss.SetPosition({5, 4.5f, 0});
+        truss.SetColor(BROWN);
+        truss.SetTruss(true);
 
-    OWPart wedge;
-    wedge.InstanceName = "Wedge";
-    wedge.SetSize({4, 8, 8});
-    wedge.SetAnchored(true);
-    wedge.SetPosition({-8, 2, 5});
-    wedge.SetColor(DARKGRAY);
-    wedge.SetShapeWedge();
+        OWPart wedge;
+        wedge.InstanceName = "Wedge";
+        wedge.SetSize({4, 8, 8});
+        wedge.SetAnchored(true);
+        wedge.SetPosition({-8, 2, 5});
+        wedge.SetColor(DARKGRAY);
+        wedge.SetShapeWedge();
 
-    OWPart ball;
-    ball.InstanceName = "Ball";
-    ball.SetSize({10, 10, 10});
-    ball.SetAnchored(true);
-    ball.SetPosition({-5, 1.5f, -5});
-    ball.SetColor(DARKGRAY);
-    ball.SetShapeBall();
-    
+        OWPart ball;
+        ball.InstanceName = "Ball";
+        ball.SetSize({10, 10, 10});
+        ball.SetAnchored(true);
+        ball.SetPosition({-5, 1.5f, -5});
+        ball.SetColor(DARKGRAY);
+        ball.SetShapeBall();
+        
 
-    OWPart cyl;
-    cyl.InstanceName = "Cylinder";
-    cyl.SetSize({8, 3, 3});
-    cyl.SetAnchored(true);
-    cyl.SetPosition({8, 1.5f, -5});
-    cyl.SetColor(DARKGRAY);
-    cyl.SetShapeCylinder();
-    
-    OWPart cornerWedge;
-    cornerWedge.InstanceName = "CornerWedge";
-    cornerWedge.SetSize({4, 4, 4});
-    cornerWedge.SetAnchored(true);
-    cornerWedge.SetPosition({15, 2, 5});
-    cornerWedge.SetColor(DARKGRAY);
-    cornerWedge.SetShapeCornerWedge();
+        OWPart cyl;
+        cyl.InstanceName = "Cylinder";
+        cyl.SetSize({8, 3, 3});
+        cyl.SetAnchored(true);
+        cyl.SetPosition({8, 1.5f, -5});
+        cyl.SetColor(DARKGRAY);
+        cyl.SetShapeCylinder();
+        
+        OWPart cornerWedge;
+        cornerWedge.InstanceName = "CornerWedge";
+        cornerWedge.SetSize({4, 4, 4});
+        cornerWedge.SetAnchored(true);
+        cornerWedge.SetPosition({15, 2, 5});
+        cornerWedge.SetColor(DARKGRAY);
+        cornerWedge.SetShapeCornerWedge();
+    }
     
     // creating a rig for the player
     OWRig character;

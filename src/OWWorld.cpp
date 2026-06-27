@@ -1,6 +1,7 @@
 #include "OWWorld.hpp"
 #include <map>
 #include <cmath>
+#include <set>
 
 static uint64_t g_nextUID = 1;
 
@@ -109,14 +110,37 @@ void OWWorld::substep() {
     cw.extractContacts(freshContacts, bodyLookup);
     cm.update(freshContacts, bodyLookup);
 
-    // build solver inputs uh 1 SimBodyInput per root body
+    // the solver doesn't need to know about 10,000 gazillion anchored parts that aren't touching anything.
+    std::set<OWSolver::Body*> requiredBodies;
+    
+    // always include dynamic bodies
+    for (auto& b : bodies) {
+        if (!b->isRoot()) continue;
+        if (!b->isStatic()) {
+            requiredBodies.insert(b.get());
+        }
+    }
+    
+    // include static bodies that are actively touching dynamic bodies
+    for (const auto& kv : bodyLookup) {
+        requiredBodies.insert(kv.second.first);
+        requiredBodies.insert(kv.second.second);
+    }
+    
+    // include bodies constrained by persistent constraints (like the upright constraint)
+    for (auto* c : persistentConstraints) {
+        requiredBodies.insert(c->getBodyA()->getRoot());
+        requiredBodies.insert(c->getBodyB()->getRoot());
+    }
+    
+    // always include the world body
+    requiredBodies.insert(&worldBody);
+
     std::map<uint64_t, int> rootUidToIndex;
     std::vector<OWSolver::SimBodyInput> inputs;
     std::vector<OWSolver::Body*> solverBodies;
 
-    for (size_t i = 0; i < bodies.size(); i++) {
-        OWSolver::Body* b = bodies[i].get();
-        if (!b->isRoot()) continue;
+    for (OWSolver::Body* b : requiredBodies) {
         rootUidToIndex[b->getUID()] = (int)inputs.size();
         solverBodies.push_back(b);
 
@@ -124,18 +148,19 @@ void OWWorld::substep() {
         OWSolver::CoordinateFrame cf = b->getWorldCFrame();
         in.position = cf.translation;
         in.orientation = cf.rotation;
-        in.linearVelocity = b->getLinearVelocity();
-        in.angularVelocity = b->getAngularVelocity();
-        in.externalForce = b->getExternalForce();
-        in.externalTorque = b->getExternalTorque();
-        in.externalImpulse = b->getExternalImpulse();
-        in.externalAngularImpulse = b->getExternalRotationalImpulse();
 
         if (b->isStatic()) {
             in.massInv = 0.0f;
             in.inertiaInv = glm::mat3(0.0f);
             in.effectiveMassMultiplier = 0.0f;
         } else {
+            in.linearVelocity = b->getLinearVelocity();
+            in.angularVelocity = b->getAngularVelocity();
+            in.externalForce = b->getExternalForce();
+            in.externalTorque = b->getExternalTorque();
+            in.externalImpulse = b->getExternalImpulse();
+            in.externalAngularImpulse = b->getExternalRotationalImpulse();
+
             b->recomputeBranchProperties();
             in.massInv = 1.0f / b->getBranchMass();
             glm::mat3 Iworld = b->getBranchInertiaWorldAtPoint(b->getBranchCofmWorld());
@@ -148,16 +173,6 @@ void OWWorld::substep() {
             in.effectiveMassMultiplier = 1.0f;
         }
         inputs.push_back(in);
-    }
-
-    rootUidToIndex[0] = (int)inputs.size();
-    {
-        OWSolver::SimBodyInput in{};
-        in.massInv = 0.0f;
-        in.inertiaInv = glm::mat3(0.0f);
-        in.effectiveMassMultiplier = 0.0f;
-        inputs.push_back(in);
-        solverBodies.push_back(&worldBody);
     }
 
     // build constraint arrays
@@ -195,6 +210,7 @@ void OWWorld::substep() {
 
     for (auto& b : bodies) {
         if (!b->isRoot()) continue;
+        if (b->isStatic()) continue;
         b->clearAccumulators();
     }
 }

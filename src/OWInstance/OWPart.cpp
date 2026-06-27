@@ -132,7 +132,7 @@ void OWPart::SetCanCollide(bool c) {
 void OWPart::Render() {
     if (!body || !visible) return;
 
-    rlDrawRenderBatchActive();
+    //rlDrawRenderBatchActive();
 
     glm::vec3 pos = body->getWorldPosition();
     glm::mat3 rot = body->getWorldOrientation();
@@ -343,6 +343,6 @@ void OWPart::Render() {
             break;
     }
     
-    rlDrawRenderBatchActive();
+    //rlDrawRenderBatchActive();
     rlPopMatrix();
 }
