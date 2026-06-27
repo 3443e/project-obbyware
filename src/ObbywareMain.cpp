@@ -1,13 +1,13 @@
 #include "ObbywareMain.hpp"
+#include "Lighting/OWShaders.hpp"
 #include "OWDebugFlags.hpp"
 #include "OWInstance/OWPart.hpp"
 #include "OWInstance/OWContainer.hpp"
 #include "OWWorld.hpp"
-#include "OWShaders.hpp"
+#include "Lighting/OWShaders.hpp"
 #include "OWPlayerController.hpp"
 #include "OWRig.hpp"
 #include "OWCamera.hpp"
-#include <iostream>
 #include <raylib.h>
 #include <string>
 #include <glm/glm.hpp>
@@ -20,7 +20,10 @@ int main() {
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     
     SetTargetFPS(60);
-    InitLighting();
+    
+    OWShaders::InitOWShaders();
+    OWShaders::OWUpdateLightingShaderValues();
+
     EnableCursor();
 
     // physics world
@@ -31,9 +34,9 @@ int main() {
     floor.SetSize({50, 1, 50});
     floor.SetAnchored(true);
     floor.SetPosition({0, -0.5f, 0});
-    floor.SetColor(GRAY);
-    floor.SetFriction(2.0f);
+    floor.SetColor(DARKGREEN);
     floor.SetStudded(true);
+    floor.SetTransparency(0.5f);
 
     OWPart floor2;
     floor2.InstanceName = "Floor";
@@ -49,13 +52,13 @@ int main() {
     wall1.SetPosition({0, 2, -10});
     wall1.SetColor(DARKGRAY);
 
+    wall1.SetTransparency(0.5f);
     OWPart wall2;
     wall2.InstanceName = "Wall2";
     wall2.SetSize({2, 4, 40});
     wall2.SetAnchored(true);
     wall2.SetPosition({10, 2, 0});
     wall2.SetColor(DARKGRAY);
-
 
     OWPart platform1;
     platform1.InstanceName = "platform";
@@ -147,7 +150,6 @@ int main() {
         float frameTime = GetFrameTime();
 
         camera.updateInput(frameTime);
-
         // game step (fixed 60Hz)
         gameStepAccumulator += frameTime;
         while (gameStepAccumulator >= GAME_STEP_DT) {
@@ -200,16 +202,26 @@ int main() {
         camera.updatePosition();
         OWMain::CurrentPlayerCamera = camera.getCamera();
 
+        Vector3 rayCamPos = OWMain::CurrentPlayerCamera.position;
+        Vector3 rayCharPos = character.GetPosition();
+        glm::vec3 camPos(rayCamPos.x, rayCamPos.y, rayCamPos.z);
+        glm::vec3 charPos(rayCharPos.x, rayCharPos.y, rayCharPos.z);
+        float distance = glm::distance(camPos, charPos); 
+        float camDist = camera.getDistance();
+        float transparency = camera.UpdateFirstPersonTransparency(camDist, GetFrameTime());
+        character.SetTransparency(transparency);
+
         BeginDrawing();
             ClearBackground({186, 211, 235, 0});  
             BeginMode3D(OWMain::CurrentPlayerCamera);
 
-                BeginLighting(OWMain::CurrentPlayerCamera);
+                OWShaders::OWBeginLighting(OWMain::CurrentPlayerCamera);
                 
                 for (OWInstance* child : OWContainer::ContainerInstances) {
                     child->Render();
                 }
-                EndLighting();
+
+                OWShaders::OWEndLighting();
                 controller.renderDebugRays();
             EndMode3D();
 

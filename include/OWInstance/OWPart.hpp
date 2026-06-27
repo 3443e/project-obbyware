@@ -27,7 +27,8 @@ public:
     void SetVisible(bool v) { visible = v; }
     void SetColor(Color c) { color = c; }
     void SetStudded(bool v) { studded = v; }
-
+    void SetTransparency(float t) { transparency = t; }
+    
     void SetTruss(bool t);
     void SetShapeBall();
     void SetShapeCylinder();
@@ -44,6 +45,8 @@ private:
     OWSolver::Body* body = nullptr;
     Vector3 size = {1, 1, 1};
     bool visible = true;
+    float transparency = 0.0f;
+
     bool studded = false;
     Color color = WHITE;
 };

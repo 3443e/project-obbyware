@@ -20,6 +20,7 @@ class OWRig {
 public:
     OWRig();
     void SetPosition(const Vector3& pos);
+    
     Vector3 GetPosition() const;
     OWPart* getRoot() { return &rootPart; }
     void Render();
@@ -30,7 +31,8 @@ public:
     void setAnimationPaused(const OWAnimation* anim, bool paused);
     void setAnimationSpeed(const OWAnimation* anim, float speed);
     void updateAnimation(float dt);
-
+    void SetTransparency(float t);
+    
 private:
     OWPart rootPart;
     OWPart torso;

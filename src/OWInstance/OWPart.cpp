@@ -1,6 +1,6 @@
 #include "OWInstance/OWPart.hpp"
 #include "OWWorld.hpp"
-#include "OWShaders.hpp"
+#include "Lighting/OWShaders.hpp"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <raylib.h>
@@ -149,17 +149,21 @@ void OWPart::Render() {
     rlMultMatrixf(matrix);
 
     float hasStuds = studded ? 1.0f : 0.0f;
-    SetShaderValue(g_lightingShader, GetShaderLocation(g_lightingShader, "hasStuds"), &hasStuds, SHADER_UNIFORM_FLOAT);
+    SetShaderValue(OWShaders::lightingShader, GetShaderLocation(OWShaders::lightingShader, "hasStuds"), &hasStuds, SHADER_UNIFORM_FLOAT);
+
+    unsigned char alpha = (unsigned char)(255.0f * (1.0f - transparency));
+    Color renderColor = color;
+    renderColor.a = alpha;
 
     switch (body->getShape()) {
        case OWSolver::Body::Shape_Box: {
-            rlSetTexture(studded ? g_studTexture.id : g_grayTexture.id);
+            rlSetTexture(studded ? OWShaders::studTexture.id : OWShaders::grayTexture.id);
             float hx = size.x * 0.5f;
             float hy = size.y * 0.5f;
             float hz = size.z * 0.5f;
             
             rlBegin(RL_TRIANGLES);
-                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlColor4ub(renderColor.r, renderColor.g, renderColor.b, renderColor.a);
                 
                 rlNormal3f(1, 0, 0);
                 rlTexCoord2f(0, 0); rlVertex3f(hx, -hy,  hz);
@@ -214,7 +218,7 @@ void OWPart::Render() {
             
         case OWSolver::Body::Shape_Sphere: {
             float radius = size.x * 0.5f;
-            DrawSphere({0, 0, 0}, radius, color);
+            DrawSphere({0, 0, 0}, radius, renderColor);
             break;
         }
         
@@ -224,7 +228,7 @@ void OWPart::Render() {
             int segments = 24;
             
             rlBegin(RL_TRIANGLES);
-                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlColor4ub(renderColor.r, renderColor.g, renderColor.b, renderColor.a);
                 
                 for (int i = 0; i < segments; i++) {
                     float a1 = (float)i / segments * 2.0f * 3.14159265f;
@@ -278,7 +282,7 @@ void OWPart::Render() {
             float slopeNZ = h.y / slopeLen;
             
             rlBegin(RL_TRIANGLES);
-                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlColor4ub(renderColor.r, renderColor.g, renderColor.b, renderColor.a);
 
                 // Bottom (Normal -Y)
                 rlNormal3f(0, -1, 0);
@@ -314,7 +318,7 @@ void OWPart::Render() {
             float slope2NX = h.y / slope2Len;
             
             rlBegin(RL_TRIANGLES);
-                rlColor4ub(color.r, color.g, color.b, color.a);
+                rlColor4ub(renderColor.r, renderColor.g, renderColor.b, renderColor.a);
 
                 // Bottom (Normal -Y)
                 rlNormal3f(0, -1, 0);

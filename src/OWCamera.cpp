@@ -1,4 +1,5 @@
 #include "OWCamera.hpp"
+#include "OWInstance/OWContainer.hpp"
 #include <cmath>
 #include <algorithm>
 
@@ -84,20 +85,55 @@ void OWCamera::updatePosition() {
     glm::vec3 focus = getFocusPoint();
     glm::vec3 lookDir = getLookDirection();
 
-    if (shiftLock && !isFirstPerson()) {
+    if (shiftLock && distance > FIRST_PERSON_CUTOFF) {
         glm::vec3 right(std::cos(heading), 0, -std::sin(heading));
         focus += right * MOUSE_LOCK_OFFSET;
     }
 
-    glm::vec3 camPos;
-    if (isFirstPerson()) {
-        camPos = focus;
-        cam.target = toRaylib(focus + lookDir);
-    } else {
-        camPos = focus - lookDir * distance;
-        cam.target = toRaylib(focus);
-    }
+    glm::vec3 camPos = focus - lookDir * distance;
+    
+    cam.target = toRaylib(focus);
 
     cam.position = toRaylib(camPos);
     cam.up = {0, 1, 0};
+}
+
+float OWCamera::UpdateFirstPersonTransparency(float distance, float dt) {
+    constexpr float MAX_TWEEN_RATE = 2.8f;
+    
+    float transparency = 0.0f;
+    bool instant = false;
+    
+    transparency = (7.0f - distance) / 5.0f;
+    if (transparency < 0.5f) {
+        transparency = 0.0f;
+    }
+    
+    if (lastTransparency >= 0.0f) {
+        float deltaTransparency = transparency - lastTransparency;
+        
+        if (!instant && transparency < 1.0f && lastTransparency < 0.95f) {
+            float maxDelta = MAX_TWEEN_RATE * dt;
+            if (deltaTransparency > maxDelta) {
+                deltaTransparency = maxDelta;
+            }
+            if (deltaTransparency < -maxDelta) {
+                deltaTransparency = -maxDelta;
+            }
+        }
+        transparency = lastTransparency + deltaTransparency;
+    } else {
+        transparencyDirty = true;
+    }
+    
+    transparency = std::round(transparency * 100.0f) / 100.0f;
+    if (transparency < 0.0f) transparency = 0.0f;
+    if (transparency > 1.0f) transparency = 1.0f;
+    
+    if (transparencyDirty || lastTransparency != transparency) {
+        transparencyDirty = false;
+        lastTransparency = transparency;
+    }
+    
+    return transparency;
 }

@@ -473,7 +473,7 @@ void OWPlayerController::substepCallback() {
         
         deltaForce.y += mass * GRAVITY; 
 
-        {
+        if (cachedFloorHit) {
             deltaForce.x *= FLOOR_FRICTION_OVERRIDE;
             deltaForce.z *= FLOOR_FRICTION_OVERRIDE;
         }
@@ -484,6 +484,13 @@ void OWPlayerController::substepCallback() {
             float currentAngVelY = body->getAngularVelocity().y;
             float desiredTorqueY = K_TURN_P_GROUND * cachedIbodyY * (0.0f - currentAngVelY);
             desiredTorqueY = std::clamp(desiredTorqueY, -TURN_TORQUE_MAX_Y, TURN_TORQUE_MAX_Y);
+
+            if (currentAngVelY > 0.0f) {
+                desiredTorqueY = std::max(desiredTorqueY, -currentAngVelY * cachedIbodyY / WORLD_DT);
+            } else if (currentAngVelY < 0.0f) {
+                desiredTorqueY = std::min(desiredTorqueY, -currentAngVelY * cachedIbodyY / WORLD_DT);
+            }
+
             body->accumulateTorque(glm::vec3(0, desiredTorqueY, 0));
         }
         return;
@@ -510,6 +517,15 @@ void OWPlayerController::substepCallback() {
         desiredTorqueY -= body->getExternalTorque().y;
         float freefallTorqueMax = cachedIbodyY * 120000.0f;
         desiredTorqueY = std::clamp(desiredTorqueY, -freefallTorqueMax, freefallTorqueMax);
+
+        float predictedDeltaAngVelY = (desiredTorqueY / cachedIbodyY) * WORLD_DT;
+        float predictedAngVelY = currentAngVelY + predictedDeltaAngVelY;
+        bool wouldOvershoot = (cachedDesiredAngVelY > currentAngVelY && predictedAngVelY > cachedDesiredAngVelY) || (cachedDesiredAngVelY < currentAngVelY && predictedAngVelY < cachedDesiredAngVelY);
+        if (wouldOvershoot) {
+            float neededDeltaAngVelY = cachedDesiredAngVelY - currentAngVelY;
+            desiredTorqueY = (neededDeltaAngVelY / WORLD_DT) * cachedIbodyY;
+        }
+
         body->accumulateTorque(glm::vec3(0, desiredTorqueY, 0));
         return;
     }
@@ -567,6 +583,14 @@ void OWPlayerController::substepCallback() {
         float currentAngVelY = body->getAngularVelocity().y;
         float desiredTorqueY = K_TURN_P_GROUND * cachedIbodyY * (cachedDesiredAngVelY - currentAngVelY);
         desiredTorqueY = std::clamp(desiredTorqueY, -TURN_TORQUE_MAX_Y, TURN_TORQUE_MAX_Y);
+        float predictedDeltaAngVelY = (desiredTorqueY / cachedIbodyY) * WORLD_DT;
+        float predictedAngVelY = currentAngVelY + predictedDeltaAngVelY;
+        bool wouldOvershoot = (cachedDesiredAngVelY > currentAngVelY && predictedAngVelY > cachedDesiredAngVelY) || (cachedDesiredAngVelY < currentAngVelY && predictedAngVelY < cachedDesiredAngVelY);
+        if (wouldOvershoot) {
+            float neededDeltaAngVelY = cachedDesiredAngVelY - currentAngVelY;
+            desiredTorqueY = (neededDeltaAngVelY / WORLD_DT) * cachedIbodyY;
+        }
+
         body->accumulateTorque(glm::vec3(0, desiredTorqueY, 0));
     }
 }

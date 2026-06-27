@@ -278,7 +278,6 @@ void OWRig::updateAnimation(float dt) {
         return result;
     };
 
-
     // huge hack
     OWSolver::CoordinateFrame headPose = blendPose("Head");
     glm::mat3 forwardBase = glm::mat3(
@@ -309,4 +308,14 @@ void OWRig::updateAnimation(float dt) {
 
     OWSolver::CoordinateFrame rightLegPose = blendPose("Right Leg");
     rightLeg.getBody()->setLocalCFrame(applyMotor6D(baseRightLeg, c0RotLeftArmsLegs, c1TransLeg, rightLegPose));
+}
+
+void OWRig::SetTransparency(float t) {
+    rootPart.SetTransparency(t);
+    torso.SetTransparency(t);
+    head.SetTransparency(t);
+    leftArm.SetTransparency(t);
+    rightArm.SetTransparency(t);
+    leftLeg.SetTransparency(t);
+    rightLeg.SetTransparency(t);
 }
