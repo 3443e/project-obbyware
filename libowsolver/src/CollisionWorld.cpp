@@ -5,7 +5,7 @@
 #include <BulletCollision/CollisionShapes/btConvexHullShape.h>
 #include <LinearMath/btTransform.h>
 #include <LinearMath/btVector3.h>
-
+#include <btBulletCollisionCommon.h>
 #include <cmath>
 #include <cstdio>
 #include <set>
@@ -415,6 +415,22 @@ namespace OWSolver {
             }
         }
         return result;
+    }
+
+    void CollisionWorld::BeginBatchLoad() {
+        if (world) {
+            // tell Bullet to stop updating its broadphase pairs while we add bodies
+            world->getPairCache()->setOverlapFilterCallback(nullptr);
+        }
+    }
+
+    void CollisionWorld::EndBatchLoad() {
+        if (world) {
+            // re-evaluate all pairs now that everything is loaded
+            world->getBroadphase()->resetPool(dispatcher);
+            // restore default callback (null is default for btDbvtBroadphase, but we explicitly set it to be safe)
+            world->getPairCache()->setOverlapFilterCallback(nullptr);
+        }
     }
 } // namespace OWSolver
 

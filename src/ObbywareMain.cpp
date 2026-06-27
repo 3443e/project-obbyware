@@ -33,7 +33,14 @@ int main(int argc, char* argv[]) {
     std::vector<OWPart*> loadedParts;
     if (argc > 1) {
         std::string placeFN = argv[1];
+        {
+            BeginDrawing();
+            DrawText(std::string("Loading from file: " + placeFN + ".").c_str(), 10, 10, 8, WHITE);
+            EndDrawing();
+        }
+        world.BeginBatchLoad();
         loadedParts = OWPlaceLoader::LoadPlace(placeFN, world);
+        world.EndBatchLoad();
     } else {
         OWPart floor;
         floor.InstanceName = "Floor";

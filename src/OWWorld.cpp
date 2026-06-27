@@ -236,3 +236,11 @@ void OWWorld::updateBodyFriction(OWSolver::Body* body, float friction) {
     cw.setBodyFriction(body, friction);  // for new contacts
     cm.updateFrictionForBody(body->getRoot()->getUID(), friction);  // for existing contacts
 }
+
+void OWWorld::BeginBatchLoad() {
+    cw.BeginBatchLoad();
+}
+
+void OWWorld::EndBatchLoad() {
+    cw.EndBatchLoad();
+}

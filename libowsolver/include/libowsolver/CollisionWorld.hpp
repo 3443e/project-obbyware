@@ -54,6 +54,9 @@ namespace OWSolver {
         );
 
         std::vector<Body*> getBodiesInAABB(const glm::vec3& min, const glm::vec3& max, const std::vector<const Body*>& ignoreBodies);
+
+        void BeginBatchLoad();
+        void EndBatchLoad();
     private:
 
         btDefaultCollisionConfiguration* config = nullptr;

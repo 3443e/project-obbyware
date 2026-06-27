@@ -89,25 +89,27 @@ namespace OWSolver {
 
     // ---- ContactManager ----
 
-    void ContactManager::update(
-        const std::map<PairKey, std::vector<ContactPoint>, PairKeyCompare>& freshByPair,
-        const std::map<PairKey, std::pair<Body*, Body*>, PairKeyCompare>& bodyLookup)
-    {
-        // Update existing manifolds with new contacts
-        for (auto& kv : manifolds) {
-            const PairKey& key = kv.first;
-            ContactManifold* manifold = kv.second;
+    void ContactManager::update(const std::map<PairKey, std::vector<ContactPoint>, PairKeyCompare>& freshByPair, const std::map<PairKey, std::pair<Body*, Body*>, PairKeyCompare>& bodyLookup) {
+        for (auto it = manifolds.begin(); it != manifolds.end(); ) {
+            const PairKey& key = it->first;
+            ContactManifold* manifold = it->second;
 
-            auto it = freshByPair.find(key);
-            if (it != freshByPair.end()) {
-                manifold->update(it->second);
+            auto freshIt = freshByPair.find(key);
+            if (freshIt != freshByPair.end()) {
+                manifold->update(freshIt->second);
+                ++it;
             } else {
                 std::vector<ContactPoint> empty;
                 manifold->update(empty);
+                if (manifold->getCollisions().empty()) {
+                    delete manifold;
+                    it = manifolds.erase(it);
+                } else {
+                    ++it;
+                }
             }
         }
 
-        // create new manifolds for new pairs
         for (const auto& kv : freshByPair) {
             const PairKey& key = kv.first;
             if (manifolds.find(key) == manifolds.end()) {

@@ -65,6 +65,9 @@ public:
     using PreSubstepCallback = std::function<void()>;
     void setPreSubstepCallback(PreSubstepCallback cb) { preSubstepCallback = std::move(cb); }
     std::vector<OWSolver::Body*> getBodiesInAABB(const glm::vec3& min, const glm::vec3& max, const std::vector<const OWSolver::Body*>& ignore);
+
+    void BeginBatchLoad();
+    void EndBatchLoad();
 private:
     PreSubstepCallback preSubstepCallback;
     OWSolver::CollisionWorld cw;

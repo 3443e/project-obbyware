@@ -129,7 +129,7 @@ std::vector<OWPart*> OWPlaceLoader::LoadPlace(const std::string& filename, OWWor
                         boolElem = boolElem->NextSiblingElement("bool");
                     }
 
-                    //part->SetAnchored(true);
+                    part->SetAnchored(true); // set everything to anchored for now
 
                     // color stuff
                     const XMLElement* colorElem = props->FirstChildElement("Color3uint8");
