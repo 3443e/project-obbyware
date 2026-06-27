@@ -67,6 +67,11 @@ private:
     static constexpr float MAX_GROUND_MOVE_ACCEL = 500.0f;
     static constexpr float MAX_AIR_MOVE_ACCEL = 143.0f;   
     static constexpr float ALTITUDE_SCALE = 0.2f;
+    static constexpr float FLOOR_FRICTION_OVERRIDE = 2.0f; // okay i know this is weird but 0.3 (plastic default) just felt off 
+                                                           // and way too floaty, i was going crazy trying to figure out why that was
+                                                           // the case or whatever, i thought it was my solver that was the issue, but then
+                                                           // i found this: https://create.roblox.com/docs/reference/engine/classes/GroundController
+                                                           // idk i created it into studio and it said "friction: 2" so that's why i'm using 2.0f
 
     static constexpr float AUTO_TURN_SPEED = 8.0f;
     static constexpr float TURN_SLOSH_DEADZONE = 0.2f;     // ~5.7° 
@@ -83,7 +88,8 @@ private:
     static constexpr float GRAVITY = 196.2f;
     static constexpr float WORLD_DT = 1.0f / 240.0f;
 
-    static constexpr float STEEP_SLOPE_ANGLE = 0.01745f;  // cos(89°) 
+    static constexpr float STEEP_SLOPE_ANGLE = 0.01745f;  // cos(89°)
+
     float jumpPower = 50.0f;
     float walkSpeed = 16.0f;
     float hipHeight = 0.0f;
@@ -107,7 +113,8 @@ private:
     float cachedFloorDist = 9999.0f;         // distance from root to floor (for debug)
     bool hadFloorLastFrame = false;           // floor hysteresis
     float cachedFloorY = 0.0f;                // averaged floor Y (for debug)
-    bool cachedFloorExists = false;        
+    bool cachedFloorExists = false;   
+    bool cachedFloorHit = false;     
     glm::vec3 cachedFloorNormal{0, 1, 0};
     glm::vec3 lastFloorNormal = glm::vec3(0, 1, 0);  
     float savedTorsoFriction = 0.3f;

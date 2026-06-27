@@ -300,7 +300,14 @@ namespace OWSolver {
             std::vector<ContactPoint>& points = outContacts[key];
             points.reserve(numContacts);
 
-            float combinedFriction = 0.5f * (leafA->getFriction() + leafB->getFriction());
+            float c0 = std::clamp(leafA->getFriction(), 0.0f, 2.0f);
+            float c1 = std::clamp(leafB->getFriction(), 0.0f, 2.0f);
+            float combinedFriction;
+            if ((c0 <= 1.0f && c1 <= 1.0f) || (c0 >= 1.0f && c1 >= 1.0f)) {
+                combinedFriction = std::min(c0, c1);
+            } else {
+                combinedFriction = c0 + c1 - 1.0f;
+            }
             float combinedRestitution = 0.5f * (leafA->getRestitution() + leafB->getRestitution());
 
             bool swapAB = (uidA > uidB);

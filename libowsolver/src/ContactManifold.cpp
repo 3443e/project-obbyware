@@ -196,7 +196,14 @@ namespace OWSolver {
                 otherFriction = m->getRootA()->getFriction();
             }
             
-            float combinedFriction = 0.5f * (newFriction + otherFriction);
+            float c0 = std::clamp(newFriction, 0.0f, 2.0f);
+            float c1 = std::clamp(otherFriction, 0.0f, 2.0f);
+            float combinedFriction;
+            if ((c0 <= 1.0f && c1 <= 1.0f) || (c0 >= 1.0f && c1 >= 1.0f)) {
+                combinedFriction = std::min(c0, c1);
+            } else {
+                combinedFriction = c0 + c1 - 1.0f;
+            }
             
             for (ConstraintCollision* c : collisions) {
                 c->setFriction(combinedFriction);

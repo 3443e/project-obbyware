@@ -7,6 +7,7 @@
 #include "OWPlayerController.hpp"
 #include "OWRig.hpp"
 #include "OWCamera.hpp"
+#include <iostream>
 #include <raylib.h>
 #include <string>
 #include <glm/glm.hpp>
@@ -18,7 +19,7 @@ int main() {
     InitWindow(800, 500, "OBBYWARE");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     
-    SetTargetFPS(240);
+    SetTargetFPS(60);
     InitLighting();
     EnableCursor();
 
@@ -31,6 +32,7 @@ int main() {
     floor.SetAnchored(true);
     floor.SetPosition({0, -0.5f, 0});
     floor.SetColor(GRAY);
+    floor.SetFriction(2.0f);
     floor.SetStudded(true);
 
     OWPart floor2;

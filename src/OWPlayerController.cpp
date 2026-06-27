@@ -53,7 +53,9 @@ OWPlayerController::~OWPlayerController() {
     delete uprightConstraint;
 }
 
-float OWPlayerController::getFloorDist() const { return cachedFloorDist; }
+float OWPlayerController::getFloorDist() const {
+    return cachedFloorDist;
+}
 
 void OWPlayerController::updateInput(float dt) {
     OWSolver::Body* body = part->getBody();
@@ -72,6 +74,7 @@ void OWPlayerController::updateInput(float dt) {
     bool floorHit = findFloor(body, verticalVel, legHeight, hipHeight, floorY, floorNormal);
     cachedFloorY = floorY;
     cachedFloorNormal = floorNormal;
+    cachedFloorHit = floorHit;
 
     // target altitude/height
     float characterHipHeight = 0.5f * 2.0f + 2.0f + hipHeight;
@@ -91,13 +94,6 @@ void OWPlayerController::updateInput(float dt) {
         cachedTargetY = targetY;
         noFloorTimer = 0.0f;
         lastFloorNormal = floorNormal;
-    }
-
-    // cache floor friction for movement force scaling
-    if (floorHit && cachedFloorBodyPtr) {
-        cachedFloorFriction = std::clamp(cachedFloorBodyPtr->getFriction(), 0.0f, 1.0f);
-    } else {
-        cachedFloorFriction = 0.0f;
     }
 
     float vy = body->getLinearVelocity().y;
@@ -477,9 +473,9 @@ void OWPlayerController::substepCallback() {
         
         deltaForce.y += mass * GRAVITY; 
 
-        if (cachedFloorFriction > 0.0f) {
-            deltaForce.x *= cachedFloorFriction;
-            deltaForce.z *= cachedFloorFriction;
+        {
+            deltaForce.x *= FLOOR_FRICTION_OVERRIDE;
+            deltaForce.z *= FLOOR_FRICTION_OVERRIDE;
         }
         
         body->accumulateForce(deltaForce);
@@ -530,7 +526,7 @@ void OWPlayerController::substepCallback() {
                 float scaleFactor = 1.0f;
                 float accelerationDelta = (yAccelDesired * ALTITUDE_SCALE) - currentAccelY;
                 float deltaForce = mass * accelerationDelta;
-                deltaForce = std::clamp(deltaForce, -1e7f, 1e7f);
+                deltaForce = std::clamp(deltaForce, -1e7f, 1e7f);  
                 body->accumulateForce(glm::vec3(0, deltaForce * scaleFactor, 0));
             }
         }
@@ -549,7 +545,7 @@ void OWPlayerController::substepCallback() {
 
         // clamp horizontal
         glm::vec3 horizontalAccel(deltaAccel.x, 0.0f, deltaAccel.z);
-        float maxAccel = cachedFloorExists ? 500.0f : 143.0f;
+        float maxAccel = cachedFloorHit ? 500.0f : 143.0f;
         float accelMag = glm::length(horizontalAccel);
         if (accelMag > maxAccel) {
             horizontalAccel = horizontalAccel * (maxAccel / accelMag);
@@ -559,9 +555,9 @@ void OWPlayerController::substepCallback() {
 
         glm::vec3 deltaForce = mass * deltaAccel;
 
-        if (cachedFloorExists && cachedFloorFriction > 0.0f) {
-            deltaForce.x *= cachedFloorFriction;
-            deltaForce.z *= cachedFloorFriction;
+        {
+            deltaForce.x *= FLOOR_FRICTION_OVERRIDE;
+            deltaForce.z *= FLOOR_FRICTION_OVERRIDE;
         }
 
         body->accumulateForce(deltaForce);

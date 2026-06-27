@@ -153,12 +153,22 @@ namespace OWSolver {
             float old1 = vars[1].impulse;
             float old2 = vars[2].impulse;
 
-            (void)isCollision; // mark as intentionally unused
-            (void)old0;
+            float min0 = vars[0].minImpulseValue;
+            float max0 = vars[0].maxImpulseValue;
+            float min1 = vars[1].minImpulseValue;
+            float max1 = vars[1].maxImpulseValue;
+            float min2 = vars[2].minImpulseValue;
+            float max2 = vars[2].maxImpulseValue;
 
-            float n0 = std::min(std::max(old0 + vars[0].reaction - p0, vars[0].minImpulseValue), vars[0].maxImpulseValue);
-            float n1 = std::min(std::max(old1 + vars[1].reaction - p1, vars[1].minImpulseValue), vars[1].maxImpulseValue);
-            float n2 = std::min(std::max(old2 + vars[2].reaction - p2, vars[2].minImpulseValue), vars[2].maxImpulseValue);
+            if (isCollision) {
+                float normalImpulse = old0;
+                min1 *= normalImpulse; max1 *= normalImpulse;
+                min2 *= normalImpulse; max2 *= normalImpulse;
+            }
+
+            float n0 = std::min(std::max(old0 + vars[0].reaction - p0, min0), max0);
+            float n1 = std::min(std::max(old1 + vars[1].reaction - p1, min1), max1);
+            float n2 = std::min(std::max(old2 + vars[2].reaction - p2, min2), max2);
 
             float d0 = n0-old0, d1 = n1-old1, d2 = n2-old2;
 
