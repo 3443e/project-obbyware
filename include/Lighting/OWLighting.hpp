@@ -9,5 +9,4 @@ namespace OWLighting {
     inline glm::vec3 skyUp = glm::vec3(0.45f, 0.65f, 0.95f);
     inline glm::vec3 skyDown = glm::vec3(0.55f, 0.55f, 0.50f);
     inline glm::vec3 ambient = glm::vec3(0.2f);    
-    inline glm::vec3 fogColor = glm::vec3(0.75f, 0.82f, 0.92f);
 }

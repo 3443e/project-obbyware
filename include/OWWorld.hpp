@@ -6,6 +6,7 @@
 #include "libowsolver/Constraint.hpp"
 #include <glm/glm.hpp>
 #include <memory>
+#include <set>
 #include <vector>
 #include <functional>
 
@@ -36,6 +37,7 @@ public:
     // is used sed by OWPlayerController for the upright constraint.
     void addPersistentConstraint(OWSolver::Constraint* c);
     void removePersistentConstraint(OWSolver::Constraint* c);
+    void ignoreCollisionPair(OWSolver::Body* a, OWSolver::Body* b);
 
     OWSolver::Body* getWorldBody() {
         return &worldBody;
@@ -78,6 +80,8 @@ private:
     OWSolver::Body worldBody;
 
     std::vector<OWSolver::Constraint*> persistentConstraints;
+
+    std::set<std::pair<uint64_t,uint64_t>> ignoredPairs;
 
     float accumulator = 0.0f;
     static constexpr float FIXED_DT = 1.0f / 240.0f;

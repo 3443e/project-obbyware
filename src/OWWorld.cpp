@@ -108,6 +108,13 @@ void OWWorld::substep() {
     std::map<OWSolver::ContactManager::PairKey, std::vector<OWSolver::ContactPoint>, OWSolver::ContactManager::PairKeyCompare> freshContacts;
     std::map<OWSolver::ContactManager::PairKey, std::pair<OWSolver::Body*, OWSolver::Body*>, OWSolver::ContactManager::PairKeyCompare> bodyLookup;
     cw.extractContacts(freshContacts, bodyLookup);
+    for (auto it = freshContacts.begin(); it != freshContacts.end(); ) {
+        if (ignoredPairs.count(it->first)) {
+            it = freshContacts.erase(it);
+        } else {
+            ++it;
+        } 
+    }
     cm.update(freshContacts, bodyLookup);
 
     // the solver doesn't need to know about 10,000 gazillion anchored parts that aren't touching anything.
@@ -243,4 +250,10 @@ void OWWorld::BeginBatchLoad() {
 
 void OWWorld::EndBatchLoad() {
     cw.EndBatchLoad();
+}
+
+void OWWorld::ignoreCollisionPair(OWSolver::Body* a, OWSolver::Body* b) {
+    uint64_t ua = a->getUID();
+    uint64_t ub = b->getUID();
+    ignoredPairs.insert(ua < ub ? std::make_pair(ua, ub) : std::make_pair(ub, ua));
 }

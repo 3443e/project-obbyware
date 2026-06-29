@@ -17,7 +17,7 @@ class OWCamera;
 // moveForce = mass * 150 * velError (PGS)
 class OWPlayerController {
 public:
-    OWPlayerController(OWPart* part);
+    OWPlayerController(OWPart* part, std::vector<const OWSolver::Body*> ignoreBodies = {});
     ~OWPlayerController();
 
     void updateInput(float dt);
@@ -55,7 +55,8 @@ public:
 private:
     OWPart* part;
     OWCamera* camera = nullptr;
-
+    std::vector<const OWSolver::Body*> characterBodies;
+    
     static constexpr float K_ALTITUDE_P = 30000.0f;
     static constexpr float K_ALTITUDE_D = 1100.0f;    
 
@@ -129,7 +130,7 @@ private:
     OWSolver::ConstraintBodyAngularVelocity* uprightConstraint = nullptr;
     OWSolver::Body* cachedFloorBodyPtr = nullptr;  // body hit by floor raycast
     glm::vec3 cachedCamLook{0, 0, -1};
-
+    
     // debug raycat visualization (findFloor rays)
     struct DebugRay {
         glm::vec3 start;

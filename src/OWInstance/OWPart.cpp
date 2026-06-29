@@ -132,8 +132,6 @@ void OWPart::SetCanCollide(bool c) {
 void OWPart::Render() {
     if (!body || !visible) return;
 
-    rlDrawRenderBatchActive();
-
     glm::vec3 pos = body->getWorldPosition();
     glm::mat3 rot = body->getWorldOrientation();
 
@@ -148,8 +146,7 @@ void OWPart::Render() {
     };
     rlMultMatrixf(matrix);
 
-    float hasStuds = studded ? 1.0f : 0.0f;
-    SetShaderValue(OWShaders::lightingShader, GetShaderLocation(OWShaders::lightingShader, "hasStuds"), &hasStuds, SHADER_UNIFORM_FLOAT);
+    rlSetTexture(studded ? OWShaders::studTexture.id : OWShaders::grayTexture.id);
 
     unsigned char alpha = (unsigned char)(255.0f * (1.0f - transparency));
     Color renderColor = color;
@@ -343,6 +340,6 @@ void OWPart::Render() {
             break;
     }
     
-    rlDrawRenderBatchActive();
+    //rlDrawRenderBatchActive();
     rlPopMatrix();
 }

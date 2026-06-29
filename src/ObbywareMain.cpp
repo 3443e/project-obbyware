@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
     camera.setTarget(character.getRoot());
 
     // initializing the character 
-    OWPlayerController controller(character.getRoot());
+    OWPlayerController controller(character.getRoot(), character.getAllBodies());
     controller.setCamera(&camera);
     controller.setJumpPower(50.0f);
     controller.setWalkSpeed(16.0f);

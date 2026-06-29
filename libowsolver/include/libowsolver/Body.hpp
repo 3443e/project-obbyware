@@ -149,6 +149,9 @@ namespace OWSolver {
             getRoot()->markBranchDirty();
         }
 
+        glm::vec3 getIBodyV3() const {
+            return glm::vec3(inertiaBody[0][0], inertiaBody[1][1], inertiaBody[2][2]);
+        }
     private:
         uint64_t uid;
         std::string name;

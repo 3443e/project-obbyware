@@ -34,7 +34,8 @@ static void collectAllDescendants(const OWSolver::Body* root, std::vector<const 
     }
 }
 
-OWPlayerController::OWPlayerController(OWPart* p) : part(p) {
+OWPlayerController::OWPlayerController(OWPart* p, std::vector<const OWSolver::Body*> ignoreBodies) : part(p) {
+    characterBodies = ignoreBodies.empty() ? std::vector<const OWSolver::Body*>{ p->getBody() } : std::move(ignoreBodies);
     if (OWWorld::Active && part->getBody()) {
         uprightConstraint = new OWSolver::ConstraintBodyAngularVelocity(part->getBody(), OWWorld::Active->getWorldBody());
         // X/Z: 4e5 (upright). Y: 0 (handled by direct torque in substepCallback)
@@ -365,7 +366,7 @@ void OWPlayerController::updateInput(float dt) {
 
     // -------- Cache body-space Y inertia --------
     {
-        glm::vec3 IbodyDiag = body->getBranchIBodyV3();
+        glm::vec3 IbodyDiag = body->getIBodyV3();
         cachedIbodyY = IbodyDiag.y;
         if (!std::isfinite(cachedIbodyY) || cachedIbodyY < 0.001f) cachedIbodyY = 1.0f;
     }
@@ -392,7 +393,7 @@ void OWPlayerController::substepCallback() {
     OWSolver::Body* body = part->getBody();
     if (!body) return;
 
-    float mass = body->getBranchMass();
+    float mass = body->getMass();
     if (!std::isfinite(mass) || mass < 0.001f) return;
 
     glm::vec3 pos = body->getWorldPosition();
@@ -617,8 +618,7 @@ bool OWPlayerController::findFloor(OWSolver::Body* root, float verticalVel, floa
     maxDistance += hysteresis * legHeight;
     maxDistance += hysteresis * hipHeight;
 
-    std::vector<const OWSolver::Body*> ignore;
-    collectAllDescendants(root, ignore);
+    const std::vector<const OWSolver::Body*>& ignore = characterBodies;
 
     float zOffsets[] = {0.0f, 1.0f, -1.0f, 2.0f, -2.0f}; // raycast offsets
     glm::vec3 hitAccumulator(0.0f);
@@ -702,8 +702,7 @@ bool OWPlayerController::findCeiling(OWSolver::Body* root) {
     glm::vec3 halfSize(0.8f, 0.8f, 0.4f);
     float maxDistance = 1.0f + 2.0f * 1.5f;
 
-    std::vector<const OWSolver::Body*> ignore;
-    collectAllDescendants(root, ignore);
+    const std::vector<const OWSolver::Body*>& ignore = characterBodies;
 
     {
         glm::vec3 localOffset(0.0f, -halfSize.y, 0.0f);
@@ -783,12 +782,7 @@ bool OWPlayerController::findLadder(OWSolver::Body* root) {
     constexpr float heightScale = 1.0f;               // getCharacterHipHeight() / 3.0 = 3.0/3.0
     constexpr float spacing = sampleSpacingVal * heightScale;  // 0.142857
 
-    // build ignore list: root + all children
-    std::vector<const OWSolver::Body*> ignore;
-    ignore.push_back(root);
-    for (const OWSolver::Body* c : root->getChildren()) {
-        ignore.push_back(c);
-    }
+    const std::vector<const OWSolver::Body*>& ignore = characterBodies;
 
     // step 1: AABB Check (findPrimitiveInLadderZone)
     float bottom = -lowLadderSearch;  // -2.7

@@ -48,6 +48,5 @@ void OWShaders::OWUpdateLightingShaderValues() {
     SetShaderValue(lightingShader, GetShaderLocation(lightingShader, "ambientUp"), &OWLighting::skyUp, SHADER_UNIFORM_VEC3);
     SetShaderValue(lightingShader, GetShaderLocation(lightingShader, "ambientDown"), &OWLighting::skyDown, SHADER_UNIFORM_VEC3);
     SetShaderValue(lightingShader, GetShaderLocation(lightingShader, "ambientColor"), &OWLighting::ambient, SHADER_UNIFORM_VEC3);
-    SetShaderValue(lightingShader, GetShaderLocation(lightingShader, "fogColor"), &OWLighting::fogColor, SHADER_UNIFORM_VEC3);
 }
 
