@@ -31,8 +31,8 @@ namespace OWSolver {
         stabilizationMassReductionPower = 0.3f;
         stabilizationInertiaScale       = 0.05f;
 
-        cacheVStageModulation = {0.5f, 2.0f,  0.93f, 0.99f, 0.01f, 0.0002f};
-        cachePStageModulation = {0.5f, 1.5f,  0.70f, 0.99f, 0.01f, 0.0002f};
+        cacheVStageModulation = {2.0f, 0.5f,  0.99f, 0.93f, 0.0002f, 0.01f};
+        cachePStageModulation = {1.5f, 0.5f,  0.99f, 0.70f, 0.0002f, 0.01f};
 
         velCacheDamping         = 1.0f;
         posCacheDamping         = 1.0f;

@@ -1,4 +1,5 @@
 #include "libowsolver/ConstraintTypes.hpp"
+#include "libowsolver/Body.hpp"
 //#include <glm/gtx/norm.hpp>
 #include <algorithm>
 #include <cmath>
@@ -90,16 +91,18 @@ namespace OWSolver {
         generateOrthonormalBasis(orthogonalAxisB1, orthogonalAxisB2, axisB);
     }
 
-    void ConstraintAlign2Axes::buildEquation(ConstraintJacobianPair* jacobian, uint8_t* useBlock, ConstraintVariables* velStage, ConstraintVariables* posStage, const SolverBodyDynamicProperties& bodyA, const SolverBodyDynamicProperties& bodyB,const SolverConfig& config, float dt) {
+    void ConstraintAlign2Axes::buildEquation(ConstraintJacobianPair* jacobian, uint8_t* useBlock, ConstraintVariables* velStage, ConstraintVariables* posStage, const SolverBodyDynamicProperties& bodyA, const SolverBodyDynamicProperties& bodyB, const SolverConfig& config, float dt) {
+        glm::mat3 rA = getBodyA()->getWorldCFrame().rotation;
+        glm::mat3 rB = getBodyB() ? getBodyB()->getWorldCFrame().rotation : glm::mat3(1.0f);
+
         glm::vec3 oldOrthoB1 = worldSpaceOrthogonalB1;
         glm::vec3 oldOrthoB2 = worldSpaceOrthogonalB2;
 
-        worldSpaceOrthogonalB1 = bodyB.orientation * orthogonalAxisB1;
-        worldSpaceOrthogonalB2 = bodyB.orientation * orthogonalAxisB2;
-        glm::vec3 worldAxisB = bodyB.orientation * axisB;
-        glm::vec3 worldAxisA = bodyA.orientation * axisA;
+        worldSpaceOrthogonalB1 = rB * orthogonalAxisB1;
+        worldSpaceOrthogonalB2 = rB * orthogonalAxisB2;
+        glm::vec3 worldAxisB = rB * axisB;
+        glm::vec3 worldAxisA = rA * axisA;
 
-        // angular constraint
         jacobian[0].a.lin = glm::vec3(0);
         jacobian[0].b.lin = glm::vec3(0);
         jacobian[0].a.ang = worldSpaceOrthogonalB1;
@@ -110,7 +113,7 @@ namespace OWSolver {
         jacobian[1].a.ang = worldSpaceOrthogonalB2;
         jacobian[1].b.ang = -worldSpaceOrthogonalB2;
 
-        // Velocity
+        // Velocity stage
         glm::vec3 relAngVel = bodyB.integratedAngularVelocity - bodyA.integratedAngularVelocity;
         glm::vec3 worldVelImpulse = velStage[0].impulse * oldOrthoB1 + velStage[1].impulse * oldOrthoB2;
 
@@ -119,17 +122,14 @@ namespace OWSolver {
         velStage[1].impulse = glm::dot(worldSpaceOrthogonalB2, worldVelImpulse);
         velStage[1].reaction = glm::dot(worldSpaceOrthogonalB2, relAngVel);
 
-        // position
+        // position stage
         glm::vec3 angularError = glm::cross(worldAxisA, worldAxisB);
         float cosAngle = glm::dot(worldAxisA, worldAxisB);
-        float maxAngle = config.align2AxesMaxCorrectiveAngle * (3.14159265f / 180.0f);
+        float maxCorrectiveAngle = config.align2AxesMaxCorrectiveAngle * (3.14159265f / 180.0f);
 
-        if (cosAngle < std::cos(maxAngle)) {
+        if (cosAngle < std::cos(maxCorrectiveAngle)) {
             float sinAngle = glm::length(angularError);
-            float scale = 0.0f;
-            if (sinAngle > 0.00001f) {
-                scale = std::sin(maxAngle) / sinAngle;
-            }
+            float scale = (sinAngle > 0.00001f) ? (std::sin(maxCorrectiveAngle) / sinAngle) : 0.0f;
             angularError *= scale;
         }
         angularError *= config.align2AxesCorrectionDamping;
@@ -233,8 +233,9 @@ namespace OWSolver {
         useBlock[1] = false;
         useBlock[2] = false;
 
-        glm::vec3 relA = pointA - bodyA.position;
-        glm::vec3 relB = (pointA + depth * normal) - bodyB.position;
+        glm::vec3 midPoint = pointA + 0.5f * (depth * normal);
+        glm::vec3 relA = midPoint - bodyA.position;
+        glm::vec3 relB = midPoint - bodyB.position;
 
         jacobian[0].a.lin = -normal;
         jacobian[0].b.lin = normal;
@@ -251,7 +252,8 @@ namespace OWSolver {
         velStage[0].minImpulseValue = 0.0f;
         velStage[0].maxImpulseValue = std::numeric_limits<float>::infinity();
 
-        // tangential velocity for friction
+        float penetrationMargin = config.collisionPenetrationMargin;
+
         glm::vec3 intTangVel = intDeltaV - intNormalVel * normal;
         glm::vec3 prevTangVel = prevDeltaV - prevNormalVel * normal;
         float prevTangSpeedSq = glm::dot(prevTangVel, prevTangVel);
@@ -286,6 +288,13 @@ namespace OWSolver {
             posStage[2].impulse = glm::dot(posImpulse, t2);
             posStage[2].minImpulseValue = -frictionBound;
             posStage[2].maxImpulseValue = frictionBound;
+
+            cachedTangent1 = t1;
+
+            const float gravity = 196.2f;
+            float dA = config.collisionPenetrationMarginMaxBumpProportions * (gravity + 0.1f) / glm::dot(bodyA.angularVelocity, bodyA.angularVelocity);
+            float dB = config.collisionPenetrationMarginMaxBumpProportions * (gravity + 0.1f) / glm::dot(bodyB.angularVelocity, bodyB.angularVelocity);
+            penetrationMargin = std::max(config.collisionPenetrationMarginMin, std::min(config.collisionPenetrationMarginMax, std::min(dA, dB)));
         } else {
             t1 = glm::normalize(prevTangVel);
             t2 = glm::cross(t1, normal);
@@ -310,9 +319,13 @@ namespace OWSolver {
             posStage[1].maxImpulseValue = 0.0f;
             posStage[2].minImpulseValue = 0.0f;
             posStage[2].maxImpulseValue = 0.0f;
-        }
 
-        cachedTangent1 = t1;
+            cachedTangent1 = t1;
+
+            float dynamicVelocityExcess = std::min(config.collisionPenetrationVelocityForMinMargin, std::sqrt(prevTangSpeedSq) - config.collisionFrictionStaticToDynamicThreshold);
+            float tBlend = dynamicVelocityExcess / (config.collisionPenetrationVelocityForMinMargin - config.collisionFrictionStaticToDynamicThreshold);
+            penetrationMargin = tBlend * config.collisionPenetrationMarginMin + (1.0f - tBlend) * config.collisionPenetrationMarginMax;
+        }
 
         jacobian[1].a.lin = -t1;
         jacobian[1].b.lin = t1;
@@ -324,7 +337,7 @@ namespace OWSolver {
         jacobian[2].a.ang = -glm::cross(relA, t2);
         jacobian[2].b.ang = glm::cross(relB, t2);
 
-        posStage[0].reaction = -config.collisionPenetrationResolutionDamping * (depth + config.collisionPenetrationMargin);
+        posStage[0].reaction = -config.collisionPenetrationResolutionDamping * (depth + penetrationMargin);
         posStage[0].minImpulseValue = 0.0f;
         posStage[0].maxImpulseValue = std::numeric_limits<float>::infinity();
     }
@@ -395,4 +408,28 @@ namespace OWSolver {
         ConstraintVariables::setMaxImpulses(posStage, glm::vec3(0));
     }
 
+    //
+    // ConstraintAngularVelocity
+    //
+    void ConstraintAngularVelocity::buildEquation(ConstraintJacobianPair* jacobian, uint8_t* useBlock, ConstraintVariables* velStage, ConstraintVariables* posStage, const SolverBodyDynamicProperties& bodyA, const SolverBodyDynamicProperties& bodyB, const SolverConfig& config, float dt) {
+        glm::mat3 rB = getBodyB() ? getBodyB()->getWorldCFrame().rotation : glm::mat3(1.0f);
+        glm::vec3 worldSpaceAxisB = rB * axisB;
+
+        jacobian[0].a.lin = glm::vec3(0);
+        jacobian[0].b.lin = glm::vec3(0);
+        jacobian[0].a.ang = worldSpaceAxisB;
+        jacobian[0].b.ang = -worldSpaceAxisB;
+
+        glm::vec3 relAngularVel = bodyB.integratedAngularVelocity - bodyA.integratedAngularVelocity;
+        float rotVel = glm::dot(worldSpaceAxisB, relAngularVel) - desiredAngularVelocity;
+        float maxImpulse = maxForce * dt;
+
+        velStage[0].maxImpulseValue = maxImpulse;
+        velStage[0].minImpulseValue = -maxImpulse;
+        velStage[0].reaction = rotVel;
+
+        posStage[0].maxImpulseValue = 0.0f;
+        posStage[0].minImpulseValue = 0.0f;
+        posStage[0].reaction = 0.0f;
+    }
 } // namespace OWSolver

@@ -35,7 +35,7 @@ namespace OWSolver {
     //
     class ConstraintAlign2Axes : public Constraint {
     public:
-        ConstraintAlign2Axes(Body* a, Body* b) : Constraint(Types_Align2Axes, a, b, 2) , worldSpaceOrthogonalB1(0) , worldSpaceOrthogonalB2(0) {}
+        ConstraintAlign2Axes(Body* a, Body* b) : Constraint(Types_Align2Axes, a, b, 3) , worldSpaceOrthogonalB1(0) , worldSpaceOrthogonalB2(0) {}
 
         void setAxisA(const glm::vec3& a);
         void setAxisB(const glm::vec3& b);
@@ -201,5 +201,31 @@ namespace OWSolver {
         glm::vec3 pivotB;
         glm::vec3 maxForce;
         float p, d;
+    };
+
+    //
+    // ConstraintAngularVelocity
+    //
+
+    class ConstraintAngularVelocity : public Constraint {
+    public:
+        ConstraintAngularVelocity(Body* a, Body* b) : Constraint(Types_AngularVelocity, a, b, 1), maxForce(0), desiredAngularVelocity(0) {}
+
+        void setAxisA(const glm::vec3& a) {
+            axisA = a;
+        }
+        void setAxisB(const glm::vec3& b) { axisB = b; }
+        void setDesiredAngularVelocity(float v) {
+            desiredAngularVelocity = v;
+        }
+        void setMaxForce(float f) { maxForce = f; }
+
+    private:
+        void buildEquation(ConstraintJacobianPair* jacobian, uint8_t* useBlock, ConstraintVariables* velStage, ConstraintVariables* posStage, const SolverBodyDynamicProperties& bodyA, const SolverBodyDynamicProperties& bodyB, const SolverConfig& config, float dt) override;
+
+        glm::vec3 axisA;
+        glm::vec3 axisB;
+        float maxForce;
+        float desiredAngularVelocity;
     };
 } // namespace OWSolver

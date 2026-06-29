@@ -62,8 +62,8 @@ void main() {
     vec3 fogColor = mix(vec3(0.50, 0.38, 0.42), vec3(0.60, 0.45, 0.48), N.y * 0.5 + 0.5);
     lit = mix(lit, fogColor, fogFactor);
 
-    float gray = dot(lit, vec3(0.299, 0.587, 0.114));
-    lit = mix(vec3(gray), lit, 1.25);
+    //float gray = dot(lit, vec3(0.299, 0.587, 0.114));
+    //lit = mix(vec3(gray), lit, 1.25);
 
     lit = pow(lit, vec3(1.0/2.2));
     finalColor = vec4(lit, fragColor.a);

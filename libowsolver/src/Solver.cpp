@@ -127,6 +127,13 @@ namespace OWSolver {
             offset += d;
         }
 
+        if (!Config.velocityStageSOREnabled) {
+            std::fill(sorVel.begin(), sorVel.end(), 1.0f);
+        }
+        if (!Config.positionStageSOREnabled) {
+            std::fill(sorPos.begin(), sorPos.end(), 1.0f);
+        }
+        
         // --- 5. Compute effective masses ---
         std::vector<EffectiveMassPair> effVel(totalDim);
         std::vector<EffectiveMassPair> effPos(totalDim);

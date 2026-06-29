@@ -279,7 +279,7 @@ namespace OWSolver {
             Body* leafA = static_cast<Body*>(obA->getUserPointer());
             Body* leafB = static_cast<Body*>(obB->getUserPointer());
             if (!leafA || !leafB) continue;
-
+        
             Body* rootA = leafA->getRoot();
             Body* rootB = leafB->getRoot();
 

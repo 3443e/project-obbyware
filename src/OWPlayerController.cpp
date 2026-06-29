@@ -38,8 +38,10 @@ OWPlayerController::OWPlayerController(OWPart* p) : part(p) {
     if (OWWorld::Active && part->getBody()) {
         uprightConstraint = new OWSolver::ConstraintBodyAngularVelocity(part->getBody(), OWWorld::Active->getWorldBody());
         // X/Z: 4e5 (upright). Y: 0 (handled by direct torque in substepCallback)
+        
         uprightConstraint->setMaxTorque(glm::vec3(4e5f, 0, 4e5f));
         uprightConstraint->setMinTorque(glm::vec3(-4e5f, 0, -4e5f));
+        
         uprightConstraint->setUseIntegratedVelocities(false);
         OWWorld::Active->addPersistentConstraint(uprightConstraint);
         OWWorld::Active->setPreSubstepCallback([this]() { this->substepCallback(); });

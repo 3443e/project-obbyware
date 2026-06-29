@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
     InitWindow(800, 500, "OBBYWARE");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     
-    //SetTargetFPS(60);
+    SetTargetFPS(60);
     
     OWShaders::InitOWShaders();
     OWShaders::OWUpdateLightingShaderValues();
@@ -42,91 +42,100 @@ int main(int argc, char* argv[]) {
         loadedParts = OWPlaceLoader::LoadPlace(placeFN, world);
         world.EndBatchLoad();
     } else {
-        OWPart floor;
-        floor.InstanceName = "Floor";
-        floor.SetSize({50, 1, 50});
-        floor.SetAnchored(true);
-        floor.SetPosition({0, -0.5f, 0});
-        floor.SetColor(DARKGRAY);
-        floor.SetStudded(true);
-        floor.SetTransparency(0.5f);
+        OWPart* floor = new OWPart();
+        floor->InstanceName = "Floor";
+        floor->SetSize({50, 1, 50});
+        floor->SetAnchored(true);
+        floor->SetPosition({0, -0.5f, 0});
+        floor->SetColor(DARKGRAY);
+        floor->SetStudded(true);
+        floor->SetFriction(2.0f);
+        loadedParts.push_back(floor);
 
-        OWPart floor2;
-        floor2.InstanceName = "Floor";
-        floor2.SetSize({10, 1, 10});
-        floor2.SetAnchored(true);
-        floor2.SetPosition({0, 0.5f, 0});
-        floor2.SetColor(GRAY);
+        OWPart* floor2 = new OWPart();
+        floor2->InstanceName = "Floor";
+        floor2->SetSize({10, 1, 10});
+        floor2->SetAnchored(true);
+        floor2->SetPosition({0, 0.5f, 0});
+        floor2->SetColor(GRAY);
+        loadedParts.push_back(floor2);
 
-        OWPart wall1;
-        wall1.InstanceName = "Wall1";
-        wall1.SetSize({40, 4, 1});
-        wall1.SetAnchored(true);
-        wall1.SetPosition({0, 2, -10});
-        wall1.SetColor(DARKGRAY);
+        OWPart* wall1 = new OWPart();
+        wall1->InstanceName = "Wall1";
+        wall1->SetSize({40, 4, 1});
+        wall1->SetAnchored(true);
+        wall1->SetPosition({0, 2, -10});
+        wall1->SetColor(DARKGRAY);
+        loadedParts.push_back(wall1);
 
-        wall1.SetTransparency(0.5f);
-        OWPart wall2;
-        wall2.InstanceName = "Wall2";
-        wall2.SetSize({2, 4, 40});
-        wall2.SetAnchored(true);
-        wall2.SetPosition({10, 2, 0});
-        wall2.SetColor(DARKGRAY);
+        OWPart* wall2 = new OWPart();
+        wall2->InstanceName = "Wall2";
+        wall2->SetSize({2, 4, 40});
+        wall2->SetAnchored(true);
+        wall2->SetPosition({10, 2, 0});
+        wall2->SetColor(DARKGRAY);
+        loadedParts.push_back(wall2);
 
-        OWPart platform1;
-        platform1.InstanceName = "platform";
-        platform1.SetSize({1, 1, 10});
-        platform1.SetAnchored(true);
-        platform1.SetPosition({15, 6, 0});
-        platform1.SetColor(DARKGRAY);
+        OWPart* platform1 = new OWPart();
+        platform1->InstanceName = "platform";
+        platform1->SetSize({1, 1, 10});
+        platform1->SetAnchored(true);
+        platform1->SetPosition({15, 6, 0});
+        platform1->SetColor(DARKGRAY);
+        loadedParts.push_back(platform1);
 
-        OWPart platform2;
-        platform2.InstanceName = "platform";
-        platform2.SetSize({1, 1, 10});
-        platform2.SetAnchored(true);
-        platform2.SetPosition({28, 6, 0});
-        platform2.SetColor(DARKGRAY);
+        OWPart* platform2 = new OWPart();
+        platform2->InstanceName = "platform";
+        platform2->SetSize({1, 1, 10});
+        platform2->SetAnchored(true);
+        platform2->SetPosition({28, 6, 0});
+        platform2->SetColor(DARKGRAY);
+        loadedParts.push_back(platform2);
 
-        OWPart truss;
-        truss.InstanceName = "Truss";
-        truss.SetSize({2, 100, 2});
-        truss.SetAnchored(true);
-        truss.SetPosition({5, 4.5f, 0});
-        truss.SetColor(BROWN);
-        truss.SetTruss(true);
+        OWPart* truss = new OWPart();
+        truss->InstanceName = "Truss";
+        truss->SetSize({2, 100, 2});
+        truss->SetAnchored(true);
+        truss->SetPosition({5, 4.5f, 0});
+        truss->SetColor(BROWN);
+        truss->SetTruss(true);
+        loadedParts.push_back(truss);
 
-        OWPart wedge;
-        wedge.InstanceName = "Wedge";
-        wedge.SetSize({4, 8, 8});
-        wedge.SetAnchored(true);
-        wedge.SetPosition({-8, 2, 5});
-        wedge.SetColor(DARKGRAY);
-        wedge.SetShapeWedge();
+        OWPart* wedge = new OWPart();
+        wedge->InstanceName = "Wedge";
+        wedge->SetSize({4, 8, 8});
+        wedge->SetAnchored(true);
+        wedge->SetPosition({-8, 2, 5});
+        wedge->SetColor(DARKGRAY);
+        wedge->SetShapeWedge();
+        loadedParts.push_back(wedge);
 
-        OWPart ball;
-        ball.InstanceName = "Ball";
-        ball.SetSize({10, 10, 10});
-        ball.SetAnchored(true);
-        ball.SetPosition({-5, 1.5f, -5});
-        ball.SetColor(DARKGRAY);
-        ball.SetShapeBall();
-        
+        OWPart* ball = new OWPart();
+        ball->InstanceName = "Ball";
+        ball->SetSize({10, 10, 10});
+        ball->SetAnchored(true);
+        ball->SetPosition({-5, 1.5f, -5});
+        ball->SetColor(DARKGRAY);
+        ball->SetShapeBall();
+        loadedParts.push_back(ball);
 
-        OWPart cyl;
-        cyl.InstanceName = "Cylinder";
-        cyl.SetSize({8, 3, 3});
-        cyl.SetAnchored(true);
-        cyl.SetPosition({8, 1.5f, -5});
-        cyl.SetColor(DARKGRAY);
-        cyl.SetShapeCylinder();
-        
-        OWPart cornerWedge;
-        cornerWedge.InstanceName = "CornerWedge";
-        cornerWedge.SetSize({4, 4, 4});
-        cornerWedge.SetAnchored(true);
-        cornerWedge.SetPosition({15, 2, 5});
-        cornerWedge.SetColor(DARKGRAY);
-        cornerWedge.SetShapeCornerWedge();
+        OWPart* cyl = new OWPart();
+        cyl->InstanceName = "Cylinder";
+        cyl->SetSize({8, 3, 3});
+        cyl->SetAnchored(true);
+        cyl->SetPosition({8, 1.5f, -5});
+        cyl->SetColor(DARKGRAY);
+        cyl->SetShapeCylinder();
+        loadedParts.push_back(cyl);
+
+        OWPart* cornerWedge = new OWPart();
+        cornerWedge->InstanceName = "CornerWedge";
+        cornerWedge->SetSize({4, 4, 4});
+        cornerWedge->SetAnchored(true);
+        cornerWedge->SetPosition({15, 2, 5});
+        cornerWedge->SetColor(DARKGRAY);
+        cornerWedge->SetShapeCornerWedge();
+        loadedParts.push_back(cornerWedge);
     }
     
     // creating a rig for the player

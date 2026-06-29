@@ -46,49 +46,48 @@ OWRig::OWRig() {
     leftLeg.getBody()->setName("Left Leg");
     rightLeg.getBody()->setName("Right Leg");
 
-    glm::mat3 I(1.0f);
     glm::mat3 rot180Y = glm::mat3(
         -1, 0,  0,
          0, 1,  0,
          0, 0, -1
     );
-    glm::mat3 rotNeg90X = glm::mat3(
-        1,  0, 0,
-        0,  0, -1,
-        0,  1, 0
+    glm::mat3 rot90Y = glm::mat3(
+         0, 0, -1,
+         0, 1,  0,
+         1, 0,  0
     );
-    baseTorso = OWSolver::CoordinateFrame(rot180Y, glm::vec3(0, 0, 0));
-    baseHead = OWSolver::CoordinateFrame(rotNeg90X, glm::vec3(0, 1.5f, 0));
-    baseLeftArm = OWSolver::CoordinateFrame(I, glm::vec3(1.5f, 0, 0));
-    baseRightArm = OWSolver::CoordinateFrame(I, glm::vec3(-1.5f, 0, 0));
-    baseLeftLeg = OWSolver::CoordinateFrame(I, glm::vec3(0.5f, -2.0f, 0));
-    baseRightLeg = OWSolver::CoordinateFrame(I, glm::vec3(-0.5f, -2.0f, 0));
-
-    c0RotArmsLegs = glm::mat3(
-        0, 0, -1,
-        0, 1,  0,
-        1, 0,  0
-    );
-    c0RotHead = rot180Y;
-
-    c0RotLeftArmsLegs = glm::mat3(
-        0, 0, 1,
-        0, 1, 0,
-       -1, 0, 0
+    glm::mat3 rotNeg90Y = glm::mat3(
+         0, 0,  1,
+         0, 1,  0,
+        -1, 0,  0
     );
 
-    c1TransArm  = glm::vec3(0, -0.5f, 0);
-    c1TransLeg  = glm::vec3(0, -1.0f, 0);
-    c1TransHead = glm::vec3(0, -0.5f, 0);
+    c0Torso = OWSolver::CoordinateFrame(rot180Y, glm::vec3(0, 0, 0));
+    c1Torso = OWSolver::CoordinateFrame(rot180Y, glm::vec3(0, 0, 0));
 
-    rootPart.getBody()->weldChild(torso.getBody(), baseTorso);
-    torso.getBody()->weldChild(head.getBody(), baseHead);
-    torso.getBody()->weldChild(leftArm.getBody(), baseLeftArm);
-    torso.getBody()->weldChild(rightArm.getBody(), baseRightArm);
-    torso.getBody()->weldChild(leftLeg.getBody(), baseLeftLeg);
-    torso.getBody()->weldChild(rightLeg.getBody(), baseRightLeg);
+    c0Head = OWSolver::CoordinateFrame(rot180Y, glm::vec3(0,  1.0f, 0));
+    c1Head = OWSolver::CoordinateFrame(rot180Y, glm::vec3(0, -0.5f, 0));
 
-    SetPosition({0, 5, 0});
+    c0LeftArm  = OWSolver::CoordinateFrame(rotNeg90Y, glm::vec3(-1.0f, 0.5f, 0));
+    c1LeftArm  = OWSolver::CoordinateFrame(rotNeg90Y, glm::vec3( 0.5f, 0.5f, 0));
+
+    c0RightArm = OWSolver::CoordinateFrame(rot90Y, glm::vec3( 1.0f, 0.5f, 0));
+    c1RightArm = OWSolver::CoordinateFrame(rot90Y, glm::vec3(-0.5f, 0.5f, 0));
+
+    c0LeftLeg  = OWSolver::CoordinateFrame(rotNeg90Y, glm::vec3(-1.0f, -1.0f, 0));
+    c1LeftLeg  = OWSolver::CoordinateFrame(rotNeg90Y, glm::vec3(-0.5f,  1.0f, 0));
+
+    c0RightLeg = OWSolver::CoordinateFrame(rot90Y, glm::vec3( 1.0f, -1.0f, 0));
+    c1RightLeg = OWSolver::CoordinateFrame(rot90Y, glm::vec3( 0.5f,  1.0f, 0));
+
+    rootPart.getBody()->weldChild(torso.getBody(), c0Torso * c1Torso.inverse());
+    torso.getBody()->weldChild(head.getBody(), c0Head * c1Head.inverse());
+    torso.getBody()->weldChild(leftArm.getBody(), c0LeftArm * c1LeftArm.inverse());
+    torso.getBody()->weldChild(rightArm.getBody(), c0RightArm * c1RightArm.inverse());
+    torso.getBody()->weldChild(leftLeg.getBody(), c0LeftLeg * c1LeftLeg.inverse());
+    torso.getBody()->weldChild(rightLeg.getBody(), c0RightLeg * c1RightLeg.inverse());
+
+    rootPart.getBody()->setWorldCFrame(OWSolver::CoordinateFrame(rot180Y, glm::vec3(0, 5, 0)));
 }
 
 void OWRig::SetPosition(const Vector3& pos) { rootPart.SetPosition(pos); }
@@ -107,7 +106,6 @@ void OWRig::Render() {
 void OWRig::playAnimation(const OWAnimation* anim, float fadeTime) {
     if (!anim) return;
     if (fadeTime <= 0.0f) fadeTime = 0.1f;
-
     for (auto& t : tracks) {
         if (t.anim == anim) {
             if (t.state == AnimTrack::Stopping) {
@@ -118,7 +116,6 @@ void OWRig::playAnimation(const OWAnimation* anim, float fadeTime) {
             return;
         }
     }
-
     AnimTrack track;
     track.anim = anim;
     track.time = 0.0f;
@@ -134,7 +131,6 @@ void OWRig::playAnimation(const OWAnimation* anim, float fadeTime) {
 void OWRig::stopAnimation(const OWAnimation* anim, float fadeTime) {
     if (!anim) return;
     if (fadeTime < 0.0f) fadeTime = 0.1f;
-
     for (auto& t : tracks) {
         if (t.anim == anim && t.state != AnimTrack::Stopping) {
             t.state = AnimTrack::Stopping;
@@ -157,7 +153,7 @@ void OWRig::stopAllAnimations(float fadeTime) {
 
 void OWRig::setAnimationPaused(const OWAnimation* anim, bool paused) {
     for (auto& t : tracks) {
-        if (t.anim == anim) {
+        if (t.anim == anim) { 
             t.paused = paused;
         }
     }
@@ -173,16 +169,13 @@ void OWRig::setAnimationSpeed(const OWAnimation* anim, float speed) {
 
 OWSolver::CoordinateFrame OWRig::lerpCF(const OWSolver::CoordinateFrame& a, const OWSolver::CoordinateFrame& b, float t) {
     glm::vec3 pos = a.translation + (b.translation - a.translation) * t;
-
     glm::quat qA = glm::quat_cast(a.rotation);
     glm::quat qB = glm::quat_cast(b.rotation);
     if (glm::dot(qA, qB) < 0.0f) {
         qB = -qB;
     }
     glm::quat q = glm::slerp(qA, qB, t);
-    glm::mat3 rot = glm::mat3_cast(q);
-
-    return OWSolver::CoordinateFrame(rot, pos);
+    return OWSolver::CoordinateFrame(glm::mat3_cast(q), pos);
 }
 
 OWSolver::CoordinateFrame OWRig::getPose(const Keyframe& kf, const std::string& name) {
@@ -193,9 +186,8 @@ OWSolver::CoordinateFrame OWRig::getPose(const Keyframe& kf, const std::string& 
 }
 
 OWSolver::CoordinateFrame OWRig::samplePose(const OWAnimation* anim, float time, const std::string& partName) {
-    if (!anim || anim->keyframes.empty()) {
+    if (!anim || anim->keyframes.empty())
         return OWSolver::CoordinateFrame(glm::mat3(1.0f), glm::vec3(0));
-    }
 
     if (anim->loop && anim->duration > 0) {
         time = fmod(time, anim->duration);
@@ -222,21 +214,14 @@ OWSolver::CoordinateFrame OWRig::samplePose(const OWAnimation* anim, float time,
     return lerpCF(getPose(*prev, partName), getPose(*next, partName), alpha);
 }
 
-OWSolver::CoordinateFrame OWRig::applyMotor6D(const OWSolver::CoordinateFrame& base, const glm::mat3& c0Rot, const glm::vec3& c1Trans, const OWSolver::CoordinateFrame& pose) {
-    glm::mat3 c0RotInv = glm::transpose(c0Rot);
-    glm::mat3 finalRot = base.rotation * c0Rot * pose.rotation * c0RotInv;
-
-    glm::vec3 poseTrans = pose.translation + (pose.rotation - glm::mat3(1.0f)) * c1Trans;
-    glm::vec3 finalTrans = base.translation + base.rotation * c0Rot * poseTrans;
-
-    return OWSolver::CoordinateFrame(finalRot, finalTrans);
+OWSolver::CoordinateFrame OWRig::applyMotor6D(const OWSolver::CoordinateFrame& c0, const OWSolver::CoordinateFrame& c1, const OWSolver::CoordinateFrame& pose) {
+    return c0 * pose * c1.inverse();
 }
 
 void OWRig::updateAnimation(float dt) {
     for (auto& t : tracks) {
-        if (t.state == AnimTrack::Playing && !t.paused) {
+        if (t.state == AnimTrack::Playing && !t.paused)
             t.time += dt * t.speed;
-        }
 
         if (t.weight < t.targetWeight) {
             t.weight += t.fadeSpeed * dt;
@@ -250,8 +235,7 @@ void OWRig::updateAnimation(float dt) {
     tracks.erase(std::remove_if(tracks.begin(), tracks.end(),
         [](const AnimTrack& t) {
             return t.state == AnimTrack::Stopping && t.weight <= 0.0001f;
-        }),
-        tracks.end());
+        }), tracks.end());
 
     if (tracks.empty()) return;
 
@@ -259,12 +243,9 @@ void OWRig::updateAnimation(float dt) {
         OWSolver::CoordinateFrame result(glm::mat3(1.0f), glm::vec3(0));
         float totalWeight = 0.0f;
         bool first = true;
-
         for (const auto& t : tracks) {
             if (t.weight <= 0.0001f) continue;
-
             OWSolver::CoordinateFrame pose = samplePose(t.anim, t.time, partName);
-
             if (first) {
                 result = pose;
                 totalWeight = t.weight;
@@ -278,36 +259,12 @@ void OWRig::updateAnimation(float dt) {
         return result;
     };
 
-    // huge hack
-    OWSolver::CoordinateFrame headPose = blendPose("Head");
-    glm::mat3 forwardBase = glm::mat3(
-        1,  0, 0,
-        0,  0, -1,
-        0,  1, 0
-    );
-    
-    glm::quat poseQ = glm::quat_cast(headPose.rotation);
-    glm::quat baseQ = glm::quat_cast(forwardBase);
-    if (glm::dot(poseQ, baseQ) < 0.0f) poseQ = -poseQ;
-    glm::quat finalQ = baseQ * poseQ;
-    
-    OWSolver::CoordinateFrame headFinal(
-        glm::mat3_cast(finalQ),
-        glm::vec3(0, 1.5f, 0) + headPose.translation
-    );
-    head.getBody()->setLocalCFrame(headFinal);
-
-    OWSolver::CoordinateFrame leftArmPose = blendPose("Left Arm");
-    leftArm.getBody()->setLocalCFrame(applyMotor6D(baseLeftArm, c0RotArmsLegs, c1TransArm, leftArmPose));
-
-    OWSolver::CoordinateFrame rightArmPose = blendPose("Right Arm");
-    rightArm.getBody()->setLocalCFrame(applyMotor6D(baseRightArm, c0RotLeftArmsLegs, c1TransArm, rightArmPose));
-
-    OWSolver::CoordinateFrame leftLegPose = blendPose("Left Leg");
-    leftLeg.getBody()->setLocalCFrame(applyMotor6D(baseLeftLeg, c0RotArmsLegs, c1TransLeg, leftLegPose));
-
-    OWSolver::CoordinateFrame rightLegPose = blendPose("Right Leg");
-    rightLeg.getBody()->setLocalCFrame(applyMotor6D(baseRightLeg, c0RotLeftArmsLegs, c1TransLeg, rightLegPose));
+    torso.getBody()->setLocalCFrame(applyMotor6D(c0Torso, c1Torso, blendPose("Torso")));
+    head.getBody()->setLocalCFrame(applyMotor6D(c0Head, c1Head, blendPose("Head")));
+    leftArm.getBody()->setLocalCFrame(applyMotor6D(c0LeftArm, c1LeftArm, blendPose("Left Arm")));
+    rightArm.getBody()->setLocalCFrame(applyMotor6D(c0RightArm, c1RightArm, blendPose("Right Arm")));
+    leftLeg.getBody()->setLocalCFrame(applyMotor6D(c0LeftLeg, c1LeftLeg, blendPose("Left Leg")));
+    rightLeg.getBody()->setLocalCFrame(applyMotor6D(c0RightLeg, c1RightLeg, blendPose("Right Leg")));
 }
 
 void OWRig::SetTransparency(float t) {
